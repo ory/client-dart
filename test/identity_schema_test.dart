@@ -14,15 +14,32 @@ void main() {
   // TODO add properties to the builder and call build()
 
   group(IdentitySchema, () {
-    // The ID of the Identity JSON Schema
+    // The Schema's Creation Date
+    // DateTime createdAt
+    test('to test the property `createdAt`', () async {
+      // TODO
+    });
+
     // String id
     test('to test the property `id`', () async {
+      // TODO
+    });
+
+    // The schema name  This is set by the user and is for them to easily recognise their schema
+    // String name
+    test('to test the property `name`', () async {
       // TODO
     });
 
     // The actual Identity JSON Schema
     // JsonObject schema
     test('to test the property `schema`', () async {
+      // TODO
+    });
+
+    // Last Time Schema was Updated
+    // DateTime updatedAt
+    test('to test the property `updatedAt`', () async {
       // TODO
     });
 

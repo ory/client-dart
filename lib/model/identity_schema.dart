@@ -13,15 +13,25 @@ part 'identity_schema.g.dart';
 
 abstract class IdentitySchema implements Built<IdentitySchema, IdentitySchemaBuilder> {
 
-    /// The ID of the Identity JSON Schema
-    @nullable
+    /// The Schema's Creation Date
+    @BuiltValueField(wireName: r'created_at')
+    DateTime get createdAt;
+
     @BuiltValueField(wireName: r'id')
     String get id;
+
+    /// The schema name  This is set by the user and is for them to easily recognise their schema
+    @BuiltValueField(wireName: r'name')
+    String get name;
 
     /// The actual Identity JSON Schema
     @nullable
     @BuiltValueField(wireName: r'schema')
     JsonObject get schema;
+
+    /// Last Time Schema was Updated
+    @BuiltValueField(wireName: r'updated_at')
+    DateTime get updatedAt;
 
     IdentitySchema._();
 
@@ -44,18 +54,28 @@ class _$IdentitySchemaSerializer implements StructuredSerializer<IdentitySchema>
     Iterable<Object> serialize(Serializers serializers, IdentitySchema object,
         {FullType specifiedType = FullType.unspecified}) {
         final result = <Object>[];
-        if (object.id != null) {
-            result
-                ..add(r'id')
-                ..add(serializers.serialize(object.id,
-                    specifiedType: const FullType(String)));
-        }
+        result
+            ..add(r'created_at')
+            ..add(serializers.serialize(object.createdAt,
+                specifiedType: const FullType(DateTime)));
+        result
+            ..add(r'id')
+            ..add(serializers.serialize(object.id,
+                specifiedType: const FullType(String)));
+        result
+            ..add(r'name')
+            ..add(serializers.serialize(object.name,
+                specifiedType: const FullType(String)));
         if (object.schema != null) {
             result
                 ..add(r'schema')
                 ..add(serializers.serialize(object.schema,
                     specifiedType: const FullType(JsonObject)));
         }
+        result
+            ..add(r'updated_at')
+            ..add(serializers.serialize(object.updatedAt,
+                specifiedType: const FullType(DateTime)));
         return result;
     }
 
@@ -70,13 +90,25 @@ class _$IdentitySchemaSerializer implements StructuredSerializer<IdentitySchema>
             iterator.moveNext();
             final dynamic value = iterator.current;
             switch (key) {
+                case r'created_at':
+                    result.createdAt = serializers.deserialize(value,
+                        specifiedType: const FullType(DateTime)) as DateTime;
+                    break;
                 case r'id':
                     result.id = serializers.deserialize(value,
+                        specifiedType: const FullType(String)) as String;
+                    break;
+                case r'name':
+                    result.name = serializers.deserialize(value,
                         specifiedType: const FullType(String)) as String;
                     break;
                 case r'schema':
                     result.schema = serializers.deserialize(value,
                         specifiedType: const FullType(JsonObject)) as JsonObject;
+                    break;
+                case r'updated_at':
+                    result.updatedAt = serializers.deserialize(value,
+                        specifiedType: const FullType(DateTime)) as DateTime;
                     break;
             }
         }

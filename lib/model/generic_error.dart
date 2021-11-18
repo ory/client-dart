@@ -18,7 +18,7 @@ abstract class GenericError implements Built<GenericError, GenericErrorBuilder> 
     @BuiltValueField(wireName: r'code')
     int get code;
 
-    /// Debug information  This field is often not exposed to protect against leaking sensitive information.
+    /// Debug contains debug information. This is usually not available and has to be enabled.
     @nullable
     @BuiltValueField(wireName: r'debug')
     String get debug;
@@ -28,12 +28,22 @@ abstract class GenericError implements Built<GenericError, GenericErrorBuilder> 
     @BuiltValueField(wireName: r'details')
     JsonObject get details;
 
+    /// Name is the error name.
+    @nullable
+    @BuiltValueField(wireName: r'error')
+    String get error;
+
+    /// Description contains further information on the nature of the error.
+    @nullable
+    @BuiltValueField(wireName: r'error_description')
+    String get errorDescription;
+
     /// The error ID  Useful when trying to identify various errors in application logic.
     @nullable
     @BuiltValueField(wireName: r'id')
     String get id;
 
-    /// Error message  The error's message.
+    /// Message contains the error message.
     @BuiltValueField(wireName: r'message')
     String get message;
 
@@ -51,6 +61,11 @@ abstract class GenericError implements Built<GenericError, GenericErrorBuilder> 
     @nullable
     @BuiltValueField(wireName: r'status')
     String get status;
+
+    /// Code represents the error status code (404, 403, 401, ...).
+    @nullable
+    @BuiltValueField(wireName: r'status_code')
+    int get statusCode;
 
     GenericError._();
 
@@ -91,6 +106,18 @@ class _$GenericErrorSerializer implements StructuredSerializer<GenericError> {
                 ..add(serializers.serialize(object.details,
                     specifiedType: const FullType(JsonObject)));
         }
+        if (object.error != null) {
+            result
+                ..add(r'error')
+                ..add(serializers.serialize(object.error,
+                    specifiedType: const FullType(String)));
+        }
+        if (object.errorDescription != null) {
+            result
+                ..add(r'error_description')
+                ..add(serializers.serialize(object.errorDescription,
+                    specifiedType: const FullType(String)));
+        }
         if (object.id != null) {
             result
                 ..add(r'id')
@@ -119,6 +146,12 @@ class _$GenericErrorSerializer implements StructuredSerializer<GenericError> {
                 ..add(serializers.serialize(object.status,
                     specifiedType: const FullType(String)));
         }
+        if (object.statusCode != null) {
+            result
+                ..add(r'status_code')
+                ..add(serializers.serialize(object.statusCode,
+                    specifiedType: const FullType(int)));
+        }
         return result;
     }
 
@@ -145,6 +178,14 @@ class _$GenericErrorSerializer implements StructuredSerializer<GenericError> {
                     result.details = serializers.deserialize(value,
                         specifiedType: const FullType(JsonObject)) as JsonObject;
                     break;
+                case r'error':
+                    result.error = serializers.deserialize(value,
+                        specifiedType: const FullType(String)) as String;
+                    break;
+                case r'error_description':
+                    result.errorDescription = serializers.deserialize(value,
+                        specifiedType: const FullType(String)) as String;
+                    break;
                 case r'id':
                     result.id = serializers.deserialize(value,
                         specifiedType: const FullType(String)) as String;
@@ -164,6 +205,10 @@ class _$GenericErrorSerializer implements StructuredSerializer<GenericError> {
                 case r'status':
                     result.status = serializers.deserialize(value,
                         specifiedType: const FullType(String)) as String;
+                    break;
+                case r'status_code':
+                    result.statusCode = serializers.deserialize(value,
+                        specifiedType: const FullType(int)) as int;
                     break;
             }
         }
