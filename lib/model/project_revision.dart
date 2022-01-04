@@ -9,7 +9,6 @@ import 'package:ory_client/model/project_recovery_config.dart';
 import 'package:ory_client/model/project_web_authn_config.dart';
 import 'package:ory_client/model/project_totp_config.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:ory_client/model/null_uuid.dart';
 import 'package:ory_client/model/project_password_config.dart';
 import 'package:ory_client/model/project_verification_config.dart';
 import 'package:ory_client/model/project_oidc_config.dart';
@@ -56,7 +55,7 @@ abstract class ProjectRevision implements Built<ProjectRevision, ProjectRevision
 
     @nullable
     @BuiltValueField(wireName: r'kratos_custom_schema_id')
-    NullUUID get kratosCustomSchemaId;
+    String get kratosCustomSchemaId;
 
     /// Self-Service Login UI URL  Sets the UI URL for the login UI. If left empty, this will use Ory's hosted pages.
     @nullable
@@ -206,7 +205,7 @@ class _$ProjectRevisionSerializer implements StructuredSerializer<ProjectRevisio
             result
                 ..add(r'kratos_custom_schema_id')
                 ..add(serializers.serialize(object.kratosCustomSchemaId,
-                    specifiedType: const FullType(NullUUID)));
+                    specifiedType: const FullType(String)));
         }
         if (object.loginUiUrl != null) {
             result
@@ -367,8 +366,8 @@ class _$ProjectRevisionSerializer implements StructuredSerializer<ProjectRevisio
                         specifiedType: const FullType(String)) as String;
                     break;
                 case r'kratos_custom_schema_id':
-                    result.kratosCustomSchemaId.replace(serializers.deserialize(value,
-                        specifiedType: const FullType(NullUUID)) as NullUUID);
+                    result.kratosCustomSchemaId = serializers.deserialize(value,
+                        specifiedType: const FullType(String)) as String;
                     break;
                 case r'login_ui_url':
                     result.loginUiUrl = serializers.deserialize(value,

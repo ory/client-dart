@@ -6,8 +6,6 @@
 // ignore_for_file: unused_import
 
 import 'package:built_collection/built_collection.dart';
-import 'package:ory_client/model/null_uuid.dart';
-import 'package:ory_client/model/null_string.dart';
 import 'package:ory_client/model/project_revision.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -26,10 +24,6 @@ abstract class Project implements Built<Project, ProjectBuilder> {
     @BuiltValueField(wireName: r'id')
     String get id;
 
-    @nullable
-    @BuiltValueField(wireName: r'ongoing_stripe_checkout_id')
-    NullString get ongoingStripeCheckoutId;
-
     @BuiltValueField(wireName: r'revisions')
     BuiltList<ProjectRevision> get revisions;
 
@@ -44,7 +38,7 @@ abstract class Project implements Built<Project, ProjectBuilder> {
 
     @nullable
     @BuiltValueField(wireName: r'subscription_id')
-    NullUUID get subscriptionId;
+    String get subscriptionId;
 
     /// Last Time Project was Updated
     @BuiltValueField(wireName: r'updated_at')
@@ -83,12 +77,6 @@ class _$ProjectSerializer implements StructuredSerializer<Project> {
             ..add(r'id')
             ..add(serializers.serialize(object.id,
                 specifiedType: const FullType(String)));
-        if (object.ongoingStripeCheckoutId != null) {
-            result
-                ..add(r'ongoing_stripe_checkout_id')
-                ..add(serializers.serialize(object.ongoingStripeCheckoutId,
-                    specifiedType: const FullType(NullString)));
-        }
         result
             ..add(r'revisions')
             ..add(serializers.serialize(object.revisions,
@@ -105,7 +93,7 @@ class _$ProjectSerializer implements StructuredSerializer<Project> {
             result
                 ..add(r'subscription_id')
                 ..add(serializers.serialize(object.subscriptionId,
-                    specifiedType: const FullType(NullUUID)));
+                    specifiedType: const FullType(String)));
         }
         result
             ..add(r'updated_at')
@@ -137,10 +125,6 @@ class _$ProjectSerializer implements StructuredSerializer<Project> {
                     result.id = serializers.deserialize(value,
                         specifiedType: const FullType(String)) as String;
                     break;
-                case r'ongoing_stripe_checkout_id':
-                    result.ongoingStripeCheckoutId.replace(serializers.deserialize(value,
-                        specifiedType: const FullType(NullString)) as NullString);
-                    break;
                 case r'revisions':
                     result.revisions.replace(serializers.deserialize(value,
                         specifiedType: const FullType(BuiltList, [FullType(ProjectRevision)])) as BuiltList<ProjectRevision>);
@@ -154,8 +138,8 @@ class _$ProjectSerializer implements StructuredSerializer<Project> {
                         specifiedType: const FullType(ProjectStateEnum)) as ProjectStateEnum;
                     break;
                 case r'subscription_id':
-                    result.subscriptionId.replace(serializers.deserialize(value,
-                        specifiedType: const FullType(NullUUID)) as NullUUID);
+                    result.subscriptionId = serializers.deserialize(value,
+                        specifiedType: const FullType(String)) as String;
                     break;
                 case r'updated_at':
                     result.updatedAt = serializers.deserialize(value,

@@ -10,6 +10,7 @@ doc/ApiToken.md
 doc/AuthenticatorAssuranceLevel.md
 doc/CnameSettings.md
 doc/CreateCustomHostnameBody.md
+doc/CreateSubscriptionPayload.md
 doc/ErrorAuthenticatorAssuranceLevelNotSatisfied.md
 doc/GenericError.md
 doc/HealthNotReadyStatus.md
@@ -30,8 +31,7 @@ doc/IsOwnerForProjectBySlugPayload.md
 doc/JsonError.md
 doc/MetadataApi.md
 doc/NeedsPrivilegedSessionError.md
-doc/NullString.md
-doc/NullUUID.md
+doc/NullPlan.md
 doc/Project.md
 doc/ProjectHost.md
 doc/ProjectLookupSecretConfig.md
@@ -44,7 +44,6 @@ doc/ProjectSlug.md
 doc/ProjectTotpConfig.md
 doc/ProjectVerificationConfig.md
 doc/ProjectWebAuthnConfig.md
-doc/ProvisionProjectPayload.md
 doc/RecoveryAddress.md
 doc/RedirectionConfig.md
 doc/RedirectionField.md
@@ -88,6 +87,7 @@ doc/SubmitSelfServiceSettingsFlowWithTotpMethodBody.md
 doc/SubmitSelfServiceSettingsFlowWithWebAuthnMethodBody.md
 doc/SubmitSelfServiceVerificationFlowBody.md
 doc/SubmitSelfServiceVerificationFlowWithLinkMethodBody.md
+doc/Subscription.md
 doc/SuccessfulSelfServiceLoginWithoutBrowser.md
 doc/SuccessfulSelfServiceRegistrationWithoutBrowser.md
 doc/UiContainer.md
@@ -101,6 +101,7 @@ doc/UiNodeScriptAttributes.md
 doc/UiNodeTextAttributes.md
 doc/UiText.md
 doc/UpdateCustomHostnameBody.md
+doc/UpdateSubscriptionPayload.md
 doc/V0alpha0Api.md
 doc/V0alpha2Api.md
 doc/VerifiableIdentityAddress.md
@@ -122,6 +123,7 @@ lib/model/api_token.dart
 lib/model/authenticator_assurance_level.dart
 lib/model/cname_settings.dart
 lib/model/create_custom_hostname_body.dart
+lib/model/create_subscription_payload.dart
 lib/model/error_authenticator_assurance_level_not_satisfied.dart
 lib/model/generic_error.dart
 lib/model/health_not_ready_status.dart
@@ -141,8 +143,7 @@ lib/model/is_owner_for_project_by_slug.dart
 lib/model/is_owner_for_project_by_slug_payload.dart
 lib/model/json_error.dart
 lib/model/needs_privileged_session_error.dart
-lib/model/null_string.dart
-lib/model/null_uuid.dart
+lib/model/null_plan.dart
 lib/model/project.dart
 lib/model/project_host.dart
 lib/model/project_lookup_secret_config.dart
@@ -155,7 +156,6 @@ lib/model/project_slug.dart
 lib/model/project_totp_config.dart
 lib/model/project_verification_config.dart
 lib/model/project_web_authn_config.dart
-lib/model/provision_project_payload.dart
 lib/model/recovery_address.dart
 lib/model/redirection_config.dart
 lib/model/redirection_field.dart
@@ -199,6 +199,7 @@ lib/model/submit_self_service_settings_flow_with_totp_method_body.dart
 lib/model/submit_self_service_settings_flow_with_web_authn_method_body.dart
 lib/model/submit_self_service_verification_flow_body.dart
 lib/model/submit_self_service_verification_flow_with_link_method_body.dart
+lib/model/subscription.dart
 lib/model/successful_self_service_login_without_browser.dart
 lib/model/successful_self_service_registration_without_browser.dart
 lib/model/ui_container.dart
@@ -212,6 +213,7 @@ lib/model/ui_node_script_attributes.dart
 lib/model/ui_node_text_attributes.dart
 lib/model/ui_text.dart
 lib/model/update_custom_hostname_body.dart
+lib/model/update_subscription_payload.dart
 lib/model/verifiable_identity_address.dart
 lib/model/version.dart
 lib/serializers.dart
@@ -224,6 +226,7 @@ test/api_token_test.dart
 test/authenticator_assurance_level_test.dart
 test/cname_settings_test.dart
 test/create_custom_hostname_body_test.dart
+test/create_subscription_payload_test.dart
 test/error_authenticator_assurance_level_not_satisfied_test.dart
 test/generic_error_test.dart
 test/health_not_ready_status_test.dart
@@ -244,8 +247,7 @@ test/is_owner_for_project_by_slug_test.dart
 test/json_error_test.dart
 test/metadata_api_test.dart
 test/needs_privileged_session_error_test.dart
-test/null_string_test.dart
-test/null_uuid_test.dart
+test/null_plan_test.dart
 test/project_host_test.dart
 test/project_lookup_secret_config_test.dart
 test/project_oidc_config_test.dart
@@ -258,7 +260,6 @@ test/project_test.dart
 test/project_totp_config_test.dart
 test/project_verification_config_test.dart
 test/project_web_authn_config_test.dart
-test/provision_project_payload_test.dart
 test/recovery_address_test.dart
 test/redirection_config_test.dart
 test/redirection_field_test.dart
@@ -302,6 +303,7 @@ test/submit_self_service_settings_flow_with_totp_method_body_test.dart
 test/submit_self_service_settings_flow_with_web_authn_method_body_test.dart
 test/submit_self_service_verification_flow_body_test.dart
 test/submit_self_service_verification_flow_with_link_method_body_test.dart
+test/subscription_test.dart
 test/successful_self_service_login_without_browser_test.dart
 test/successful_self_service_registration_without_browser_test.dart
 test/ui_container_test.dart
@@ -315,6 +317,7 @@ test/ui_node_test.dart
 test/ui_node_text_attributes_test.dart
 test/ui_text_test.dart
 test/update_custom_hostname_body_test.dart
+test/update_subscription_payload_test.dart
 test/v0alpha0_api_test.dart
 test/v0alpha2_api_test.dart
 test/verifiable_identity_address_test.dart

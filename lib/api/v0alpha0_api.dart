@@ -43,10 +43,8 @@ class V0alpha0Api {
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
-            'type': 'apiKey',
+            'type': 'http',
             'name': 'oryAccessToken',
-            'keyName': 'Authorization',
-            'where': 'header',
           },
         ],
         ...?extra,
@@ -108,10 +106,8 @@ class V0alpha0Api {
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
-            'type': 'apiKey',
+            'type': 'http',
             'name': 'oryAccessToken',
-            'keyName': 'Authorization',
-            'where': 'header',
           },
         ],
         ...?extra,
@@ -169,10 +165,8 @@ class V0alpha0Api {
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
-            'type': 'apiKey',
+            'type': 'http',
             'name': 'oryAccessToken',
-            'keyName': 'Authorization',
-            'where': 'header',
           },
         ],
         ...?extra,
@@ -232,10 +226,8 @@ class V0alpha0Api {
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
-            'type': 'apiKey',
+            'type': 'http',
             'name': 'oryAccessToken',
-            'keyName': 'Authorization',
-            'where': 'header',
           },
         ],
         ...?extra,

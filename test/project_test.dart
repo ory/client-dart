@@ -30,11 +30,6 @@ void main() {
       // TODO
     });
 
-    // NullString ongoingStripeCheckoutId
-    test('to test the property `ongoingStripeCheckoutId`', () async {
-      // TODO
-    });
-
     // BuiltList<ProjectRevision> revisions
     test('to test the property `revisions`', () async {
       // TODO
@@ -52,7 +47,7 @@ void main() {
       // TODO
     });
 
-    // NullUUID subscriptionId
+    // String subscriptionId
     test('to test the property `subscriptionId`', () async {
       // TODO
     });

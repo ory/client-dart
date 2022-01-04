@@ -21,6 +21,7 @@ import 'package:ory_client/model/api_token.dart';
 import 'package:ory_client/model/authenticator_assurance_level.dart';
 import 'package:ory_client/model/cname_settings.dart';
 import 'package:ory_client/model/create_custom_hostname_body.dart';
+import 'package:ory_client/model/create_subscription_payload.dart';
 import 'package:ory_client/model/error_authenticator_assurance_level_not_satisfied.dart';
 import 'package:ory_client/model/generic_error.dart';
 import 'package:ory_client/model/health_not_ready_status.dart';
@@ -40,8 +41,7 @@ import 'package:ory_client/model/is_owner_for_project_by_slug.dart';
 import 'package:ory_client/model/is_owner_for_project_by_slug_payload.dart';
 import 'package:ory_client/model/json_error.dart';
 import 'package:ory_client/model/needs_privileged_session_error.dart';
-import 'package:ory_client/model/null_string.dart';
-import 'package:ory_client/model/null_uuid.dart';
+import 'package:ory_client/model/null_plan.dart';
 import 'package:ory_client/model/project.dart';
 import 'package:ory_client/model/project_host.dart';
 import 'package:ory_client/model/project_lookup_secret_config.dart';
@@ -54,7 +54,6 @@ import 'package:ory_client/model/project_slug.dart';
 import 'package:ory_client/model/project_totp_config.dart';
 import 'package:ory_client/model/project_verification_config.dart';
 import 'package:ory_client/model/project_web_authn_config.dart';
-import 'package:ory_client/model/provision_project_payload.dart';
 import 'package:ory_client/model/recovery_address.dart';
 import 'package:ory_client/model/redirection_config.dart';
 import 'package:ory_client/model/redirection_field.dart';
@@ -98,6 +97,7 @@ import 'package:ory_client/model/submit_self_service_settings_flow_with_totp_met
 import 'package:ory_client/model/submit_self_service_settings_flow_with_web_authn_method_body.dart';
 import 'package:ory_client/model/submit_self_service_verification_flow_body.dart';
 import 'package:ory_client/model/submit_self_service_verification_flow_with_link_method_body.dart';
+import 'package:ory_client/model/subscription.dart';
 import 'package:ory_client/model/successful_self_service_login_without_browser.dart';
 import 'package:ory_client/model/successful_self_service_registration_without_browser.dart';
 import 'package:ory_client/model/ui_container.dart';
@@ -111,6 +111,7 @@ import 'package:ory_client/model/ui_node_script_attributes.dart';
 import 'package:ory_client/model/ui_node_text_attributes.dart';
 import 'package:ory_client/model/ui_text.dart';
 import 'package:ory_client/model/update_custom_hostname_body.dart';
+import 'package:ory_client/model/update_subscription_payload.dart';
 import 'package:ory_client/model/verifiable_identity_address.dart';
 import 'package:ory_client/model/version.dart';
 
@@ -125,6 +126,7 @@ part 'serializers.g.dart';
   AuthenticatorAssuranceLevel,
   CnameSettings,
   CreateCustomHostnameBody,
+  CreateSubscriptionPayload,
   ErrorAuthenticatorAssuranceLevelNotSatisfied,
   GenericError,
   HealthNotReadyStatus,
@@ -144,8 +146,7 @@ part 'serializers.g.dart';
   IsOwnerForProjectBySlugPayload,
   JsonError,
   NeedsPrivilegedSessionError,
-  NullString,
-  NullUUID,
+  NullPlan,
   Project,
   ProjectHost,
   ProjectLookupSecretConfig,
@@ -158,7 +159,6 @@ part 'serializers.g.dart';
   ProjectTotpConfig,
   ProjectVerificationConfig,
   ProjectWebAuthnConfig,
-  ProvisionProjectPayload,
   RecoveryAddress,
   RedirectionConfig,
   RedirectionField,
@@ -202,6 +202,7 @@ part 'serializers.g.dart';
   SubmitSelfServiceSettingsFlowWithWebAuthnMethodBody,
   SubmitSelfServiceVerificationFlowBody,
   SubmitSelfServiceVerificationFlowWithLinkMethodBody,
+  Subscription,
   SuccessfulSelfServiceLoginWithoutBrowser,
   SuccessfulSelfServiceRegistrationWithoutBrowser,
   UiContainer,
@@ -215,6 +216,7 @@ part 'serializers.g.dart';
   UiNodeTextAttributes,
   UiText,
   UpdateCustomHostnameBody,
+  UpdateSubscriptionPayload,
   VerifiableIdentityAddress,
   Version,
 ])

@@ -60,7 +60,7 @@ void main() {
       // TODO
     });
 
-    // NullUUID kratosCustomSchemaId
+    // String kratosCustomSchemaId
     test('to test the property `kratosCustomSchemaId`', () async {
       // TODO
     });

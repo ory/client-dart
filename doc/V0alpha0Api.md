@@ -25,10 +25,9 @@ Creates a new project.
 ### Example 
 ```dart
 import 'package:ory_client/api.dart';
-// TODO Configure API key authorization: oryAccessToken
-//defaultApiClient.getAuthentication<ApiKeyAuth>('oryAccessToken').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('oryAccessToken').apiKeyPrefix = 'Bearer';
+// TODO Configure HTTP basic authorization: oryAccessToken
+//defaultApiClient.getAuthentication<HttpBasicAuth>('oryAccessToken').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('oryAccessToken').password = 'YOUR_PASSWORD';
 
 var api_instance = new V0alpha0Api();
 var projectPatch = new ProjectPatch(); // ProjectPatch | 
@@ -72,10 +71,9 @@ Get a projects you have access to by its ID.
 ### Example 
 ```dart
 import 'package:ory_client/api.dart';
-// TODO Configure API key authorization: oryAccessToken
-//defaultApiClient.getAuthentication<ApiKeyAuth>('oryAccessToken').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('oryAccessToken').apiKeyPrefix = 'Bearer';
+// TODO Configure HTTP basic authorization: oryAccessToken
+//defaultApiClient.getAuthentication<HttpBasicAuth>('oryAccessToken').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('oryAccessToken').password = 'YOUR_PASSWORD';
 
 var api_instance = new V0alpha0Api();
 var projectId = projectId_example; // String | Project ID  The project's ID.
@@ -119,10 +117,9 @@ Lists all projects you have access to.
 ### Example 
 ```dart
 import 'package:ory_client/api.dart';
-// TODO Configure API key authorization: oryAccessToken
-//defaultApiClient.getAuthentication<ApiKeyAuth>('oryAccessToken').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('oryAccessToken').apiKeyPrefix = 'Bearer';
+// TODO Configure HTTP basic authorization: oryAccessToken
+//defaultApiClient.getAuthentication<HttpBasicAuth>('oryAccessToken').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('oryAccessToken').password = 'YOUR_PASSWORD';
 
 var api_instance = new V0alpha0Api();
 
@@ -162,10 +159,9 @@ Creates a new configuration revision for a project.
 ### Example 
 ```dart
 import 'package:ory_client/api.dart';
-// TODO Configure API key authorization: oryAccessToken
-//defaultApiClient.getAuthentication<ApiKeyAuth>('oryAccessToken').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('oryAccessToken').apiKeyPrefix = 'Bearer';
+// TODO Configure HTTP basic authorization: oryAccessToken
+//defaultApiClient.getAuthentication<HttpBasicAuth>('oryAccessToken').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('oryAccessToken').password = 'YOUR_PASSWORD';
 
 var api_instance = new V0alpha0Api();
 var projectId = projectId_example; // String | Project ID  The project's ID.
