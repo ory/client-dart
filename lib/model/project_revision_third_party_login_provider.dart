@@ -10,14 +10,34 @@ import 'package:built_value/json_object.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'project_oidc_config.g.dart';
+part 'project_revision_third_party_login_provider.g.dart';
 
-abstract class ProjectOidcConfig implements Built<ProjectOidcConfig, ProjectOidcConfigBuilder> {
+abstract class ProjectRevisionThirdPartyLoginProvider implements Built<ProjectRevisionThirdPartyLoginProvider, ProjectRevisionThirdPartyLoginProviderBuilder> {
+
+    /// Apple Private Key  Sign In with Apple Private Key needed for generating a JWT token for client secret
+    @nullable
+    @BuiltValueField(wireName: r'apple_private_key')
+    String get applePrivateKey;
+
+    /// Apple Private Key Identifier  Sign In with Apple Private Key Identifier needed for generating a JWT token for client secret
+    @nullable
+    @BuiltValueField(wireName: r'apple_private_key_id')
+    String get applePrivateKeyId;
+
+    /// Apple Developer Team ID  Apple Developer Team ID needed for generating a JWT token for client secret
+    @nullable
+    @BuiltValueField(wireName: r'apple_team_id')
+    String get appleTeamId;
 
     /// AuthURL is the authorize url, typically something like: https://example.org/oauth2/auth Should only be used when the OAuth2 / OpenID Connect server is not supporting OpenID Connect Discovery and when `provider` is set to `generic`.
     @nullable
     @BuiltValueField(wireName: r'auth_url')
     String get authUrl;
+
+    /// Tenant is the Azure AD Tenant to use for authentication, and must be set when `provider` is set to `microsoft`.  Can be either `common`, `organizations`, `consumers` for a multitenant application or a specific tenant like `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com`.
+    @nullable
+    @BuiltValueField(wireName: r'azure_tenant')
+    String get azureTenant;
 
     /// ClientID is the application's Client ID.
     @nullable
@@ -29,7 +49,11 @@ abstract class ProjectOidcConfig implements Built<ProjectOidcConfig, ProjectOidc
     @BuiltValueField(wireName: r'client_secret')
     String get clientSecret;
 
-    /// ID is the provider's ID
+    /// The Project's Revision Creation Date
+    @nullable
+    @BuiltValueField(wireName: r'created_at')
+    DateTime get createdAt;
+
     @nullable
     @BuiltValueField(wireName: r'id')
     String get id;
@@ -49,60 +73,87 @@ abstract class ProjectOidcConfig implements Built<ProjectOidcConfig, ProjectOidc
     @BuiltValueField(wireName: r'mapper_url')
     String get mapperUrl;
 
-    /// Provider is either \"generic\" for a generic OAuth 2.0 / OpenID Connect Provider or one of: generic google github gitlab microsoft discord slack facebook vk yandex
+    @nullable
+    @BuiltValueField(wireName: r'project_revision_id')
+    String get projectRevisionId;
+
+    /// Provider is either \"generic\" for a generic OAuth 2.0 / OpenID Connect Provider or one of: generic google github gitlab microsoft discord slack facebook vk yandex apple
     @nullable
     @BuiltValueField(wireName: r'provider')
     String get provider;
 
-    /// RequestedClaims string encoded json object that specifies claims and optionally their properties which should be included in the id_token or returned from the UserInfo Endpoint.  More information: https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter
+    /// ID is the provider's ID
+    @nullable
+    @BuiltValueField(wireName: r'provider_id')
+    String get providerId;
+
     @nullable
     @BuiltValueField(wireName: r'requested_claims')
     JsonObject get requestedClaims;
 
-    /// Scope specifies optional requested permissions.
     @nullable
     @BuiltValueField(wireName: r'scope')
     BuiltList<String> get scope;
 
-    @nullable
-    @BuiltValueField(wireName: r'string')
-    String get string;
-
-    /// Tenant is the Azure AD Tenant to use for authentication, and must be set when `provider` is set to `microsoft`. Can be either `common`, `organizations`, `consumers` for a multitenant application or a specific tenant like `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com`.
-    @nullable
-    @BuiltValueField(wireName: r'tenant')
-    String get tenant;
-
-    /// TokenURL is the token url, typically something like: https://example.org/oauth2/token Should only be used when the OAuth2 / OpenID Connect server is not supporting OpenID Connect Discovery and when `provider` is set to `generic`.
+    /// TokenURL is the token url, typically something like: https://example.org/oauth2/token  Should only be used when the OAuth2 / OpenID Connect server is not supporting OpenID Connect Discovery and when `provider` is set to `generic`.
     @nullable
     @BuiltValueField(wireName: r'token_url')
     String get tokenUrl;
 
-    ProjectOidcConfig._();
+    /// Last Time Project's Revision was Updated
+    @nullable
+    @BuiltValueField(wireName: r'updated_at')
+    DateTime get updatedAt;
 
-    static void _initializeBuilder(ProjectOidcConfigBuilder b) => b;
+    ProjectRevisionThirdPartyLoginProvider._();
 
-    factory ProjectOidcConfig([void updates(ProjectOidcConfigBuilder b)]) = _$ProjectOidcConfig;
+    static void _initializeBuilder(ProjectRevisionThirdPartyLoginProviderBuilder b) => b;
+
+    factory ProjectRevisionThirdPartyLoginProvider([void updates(ProjectRevisionThirdPartyLoginProviderBuilder b)]) = _$ProjectRevisionThirdPartyLoginProvider;
 
     @BuiltValueSerializer(custom: true)
-    static Serializer<ProjectOidcConfig> get serializer => _$ProjectOidcConfigSerializer();
+    static Serializer<ProjectRevisionThirdPartyLoginProvider> get serializer => _$ProjectRevisionThirdPartyLoginProviderSerializer();
 }
 
-class _$ProjectOidcConfigSerializer implements StructuredSerializer<ProjectOidcConfig> {
+class _$ProjectRevisionThirdPartyLoginProviderSerializer implements StructuredSerializer<ProjectRevisionThirdPartyLoginProvider> {
 
     @override
-    final Iterable<Type> types = const [ProjectOidcConfig, _$ProjectOidcConfig];
+    final Iterable<Type> types = const [ProjectRevisionThirdPartyLoginProvider, _$ProjectRevisionThirdPartyLoginProvider];
     @override
-    final String wireName = r'ProjectOidcConfig';
+    final String wireName = r'ProjectRevisionThirdPartyLoginProvider';
 
     @override
-    Iterable<Object> serialize(Serializers serializers, ProjectOidcConfig object,
+    Iterable<Object> serialize(Serializers serializers, ProjectRevisionThirdPartyLoginProvider object,
         {FullType specifiedType = FullType.unspecified}) {
         final result = <Object>[];
+        if (object.applePrivateKey != null) {
+            result
+                ..add(r'apple_private_key')
+                ..add(serializers.serialize(object.applePrivateKey,
+                    specifiedType: const FullType(String)));
+        }
+        if (object.applePrivateKeyId != null) {
+            result
+                ..add(r'apple_private_key_id')
+                ..add(serializers.serialize(object.applePrivateKeyId,
+                    specifiedType: const FullType(String)));
+        }
+        if (object.appleTeamId != null) {
+            result
+                ..add(r'apple_team_id')
+                ..add(serializers.serialize(object.appleTeamId,
+                    specifiedType: const FullType(String)));
+        }
         if (object.authUrl != null) {
             result
                 ..add(r'auth_url')
                 ..add(serializers.serialize(object.authUrl,
+                    specifiedType: const FullType(String)));
+        }
+        if (object.azureTenant != null) {
+            result
+                ..add(r'azure_tenant')
+                ..add(serializers.serialize(object.azureTenant,
                     specifiedType: const FullType(String)));
         }
         if (object.clientId != null) {
@@ -116,6 +167,12 @@ class _$ProjectOidcConfigSerializer implements StructuredSerializer<ProjectOidcC
                 ..add(r'client_secret')
                 ..add(serializers.serialize(object.clientSecret,
                     specifiedType: const FullType(String)));
+        }
+        if (object.createdAt != null) {
+            result
+                ..add(r'created_at')
+                ..add(serializers.serialize(object.createdAt,
+                    specifiedType: const FullType(DateTime)));
         }
         if (object.id != null) {
             result
@@ -141,10 +198,22 @@ class _$ProjectOidcConfigSerializer implements StructuredSerializer<ProjectOidcC
                 ..add(serializers.serialize(object.mapperUrl,
                     specifiedType: const FullType(String)));
         }
+        if (object.projectRevisionId != null) {
+            result
+                ..add(r'project_revision_id')
+                ..add(serializers.serialize(object.projectRevisionId,
+                    specifiedType: const FullType(String)));
+        }
         if (object.provider != null) {
             result
                 ..add(r'provider')
                 ..add(serializers.serialize(object.provider,
+                    specifiedType: const FullType(String)));
+        }
+        if (object.providerId != null) {
+            result
+                ..add(r'provider_id')
+                ..add(serializers.serialize(object.providerId,
                     specifiedType: const FullType(String)));
         }
         if (object.requestedClaims != null) {
@@ -159,31 +228,25 @@ class _$ProjectOidcConfigSerializer implements StructuredSerializer<ProjectOidcC
                 ..add(serializers.serialize(object.scope,
                     specifiedType: const FullType(BuiltList, [FullType(String)])));
         }
-        if (object.string != null) {
-            result
-                ..add(r'string')
-                ..add(serializers.serialize(object.string,
-                    specifiedType: const FullType(String)));
-        }
-        if (object.tenant != null) {
-            result
-                ..add(r'tenant')
-                ..add(serializers.serialize(object.tenant,
-                    specifiedType: const FullType(String)));
-        }
         if (object.tokenUrl != null) {
             result
                 ..add(r'token_url')
                 ..add(serializers.serialize(object.tokenUrl,
                     specifiedType: const FullType(String)));
         }
+        if (object.updatedAt != null) {
+            result
+                ..add(r'updated_at')
+                ..add(serializers.serialize(object.updatedAt,
+                    specifiedType: const FullType(DateTime)));
+        }
         return result;
     }
 
     @override
-    ProjectOidcConfig deserialize(Serializers serializers, Iterable<Object> serialized,
+    ProjectRevisionThirdPartyLoginProvider deserialize(Serializers serializers, Iterable<Object> serialized,
         {FullType specifiedType = FullType.unspecified}) {
-        final result = ProjectOidcConfigBuilder();
+        final result = ProjectRevisionThirdPartyLoginProviderBuilder();
 
         final iterator = serialized.iterator;
         while (iterator.moveNext()) {
@@ -191,8 +254,24 @@ class _$ProjectOidcConfigSerializer implements StructuredSerializer<ProjectOidcC
             iterator.moveNext();
             final dynamic value = iterator.current;
             switch (key) {
+                case r'apple_private_key':
+                    result.applePrivateKey = serializers.deserialize(value,
+                        specifiedType: const FullType(String)) as String;
+                    break;
+                case r'apple_private_key_id':
+                    result.applePrivateKeyId = serializers.deserialize(value,
+                        specifiedType: const FullType(String)) as String;
+                    break;
+                case r'apple_team_id':
+                    result.appleTeamId = serializers.deserialize(value,
+                        specifiedType: const FullType(String)) as String;
+                    break;
                 case r'auth_url':
                     result.authUrl = serializers.deserialize(value,
+                        specifiedType: const FullType(String)) as String;
+                    break;
+                case r'azure_tenant':
+                    result.azureTenant = serializers.deserialize(value,
                         specifiedType: const FullType(String)) as String;
                     break;
                 case r'client_id':
@@ -202,6 +281,10 @@ class _$ProjectOidcConfigSerializer implements StructuredSerializer<ProjectOidcC
                 case r'client_secret':
                     result.clientSecret = serializers.deserialize(value,
                         specifiedType: const FullType(String)) as String;
+                    break;
+                case r'created_at':
+                    result.createdAt = serializers.deserialize(value,
+                        specifiedType: const FullType(DateTime)) as DateTime;
                     break;
                 case r'id':
                     result.id = serializers.deserialize(value,
@@ -219,8 +302,16 @@ class _$ProjectOidcConfigSerializer implements StructuredSerializer<ProjectOidcC
                     result.mapperUrl = serializers.deserialize(value,
                         specifiedType: const FullType(String)) as String;
                     break;
+                case r'project_revision_id':
+                    result.projectRevisionId = serializers.deserialize(value,
+                        specifiedType: const FullType(String)) as String;
+                    break;
                 case r'provider':
                     result.provider = serializers.deserialize(value,
+                        specifiedType: const FullType(String)) as String;
+                    break;
+                case r'provider_id':
+                    result.providerId = serializers.deserialize(value,
                         specifiedType: const FullType(String)) as String;
                     break;
                 case r'requested_claims':
@@ -231,17 +322,13 @@ class _$ProjectOidcConfigSerializer implements StructuredSerializer<ProjectOidcC
                     result.scope.replace(serializers.deserialize(value,
                         specifiedType: const FullType(BuiltList, [FullType(String)])) as BuiltList<String>);
                     break;
-                case r'string':
-                    result.string = serializers.deserialize(value,
-                        specifiedType: const FullType(String)) as String;
-                    break;
-                case r'tenant':
-                    result.tenant = serializers.deserialize(value,
-                        specifiedType: const FullType(String)) as String;
-                    break;
                 case r'token_url':
                     result.tokenUrl = serializers.deserialize(value,
                         specifiedType: const FullType(String)) as String;
+                    break;
+                case r'updated_at':
+                    result.updatedAt = serializers.deserialize(value,
+                        specifiedType: const FullType(DateTime)) as DateTime;
                     break;
             }
         }
