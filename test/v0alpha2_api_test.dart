@@ -89,6 +89,15 @@ void main() {
       // TODO
     });
 
+    // Partially updates an Identity's field using [JSON Patch](https://jsonpatch.com/)
+    //
+    // NOTE: The fields `id`, `stateChangedAt` and `credentials` are not updateable.  Learn how identities work in [Ory Kratos' User And Identity Model Documentation](https://www.ory.sh/docs/next/kratos/concepts/identity-user-model).
+    //
+    //Future<Identity> adminPatchIdentity(String id, { List<JsonPatch> jsonPatch }) async
+    test('test adminPatchIdentity', () async {
+      // TODO
+    });
+
     // Update an Identity
     //
     // This endpoint updates an identity. The full identity payload (except credentials) is expected. This endpoint does not support patching.  Learn how identities work in [Ory Kratos' User And Identity Model Documentation](https://www.ory.sh/docs/next/kratos/concepts/identity-user-model).
@@ -118,8 +127,8 @@ void main() {
 
     // Get a JSON Schema
     //
-    //Future<Object> getJsonSchema(String id) async
-    test('test getJsonSchema', () async {
+    //Future<IdentitySchema> getIdentitySchema(String id) async
+    test('test getIdentitySchema', () async {
       // TODO
     });
 
@@ -287,7 +296,7 @@ void main() {
 
     // Initialize Verification Flow for APIs, Services, Apps, ...
     //
-    // This endpoint initiates a verification flow for API clients such as mobile devices, smart TVs, and so on.  To fetch an existing verification flow call `/self-service/verification/flows?flow=<flow_id>`.  You MUST NOT use this endpoint in client-side (Single Page Apps, ReactJS, AngularJS) nor server-side (Java Server Pages, NodeJS, PHP, Golang, ...) browser applications. Using this endpoint in these applications will make you vulnerable to a variety of CSRF attacks.  This endpoint MUST ONLY be used in scenarios such as native mobile apps (React Native, Objective C, Swift, Java, ...).  More information can be found at [Ory Kratos Email and Phone Verification Documentation](https://www.ory.sh/docs/kratos/selfservice/flows/verify-email-account-activation).
+    // This endpoint initiates a verification flow for API clients such as mobile devices, smart TVs, and so on.  To fetch an existing verification flow call `/self-service/verification/flows?flow=<flow_id>`.  You MUST NOT use this endpoint in client-side (Single Page Apps, ReactJS, AngularJS) nor server-side (Java Server Pages, NodeJS, PHP, Golang, ...) browser applications. Using this endpoint in these applications will make you vulnerable to a variety of CSRF attacks.  This endpoint MUST ONLY be used in scenarios such as native mobile apps (React Native, Objective C, Swift, Java, ...).  More information can be found at [Ory Kratos Email and Phone Verification Documentation](https://www.ory.sh/docs/kratos/self-service/flows/verify-email-account-activation).
     //
     //Future<SelfServiceVerificationFlow> initializeSelfServiceVerificationFlowWithoutBrowser() async
     test('test initializeSelfServiceVerificationFlowWithoutBrowser', () async {
