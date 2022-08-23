@@ -17,6 +17,7 @@ class OAuth2ConsentSession {
     this.clientId,
     this.consentChallenge,
     this.excludeNotBeforeClaim,
+    this.expiresAt,
     this.extra = const {},
     this.headers,
     this.idTokenClaims,
@@ -50,6 +51,14 @@ class OAuth2ConsentSession {
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
   bool? excludeNotBeforeClaim;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  OAuth2ConsentSessionExpiresAt? expiresAt;
 
   Map<String, Object> extra;
 
@@ -99,6 +108,7 @@ class OAuth2ConsentSession {
      other.clientId == clientId &&
      other.consentChallenge == consentChallenge &&
      other.excludeNotBeforeClaim == excludeNotBeforeClaim &&
+     other.expiresAt == expiresAt &&
      other.extra == extra &&
      other.headers == headers &&
      other.idTokenClaims == idTokenClaims &&
@@ -113,6 +123,7 @@ class OAuth2ConsentSession {
     (clientId == null ? 0 : clientId!.hashCode) +
     (consentChallenge == null ? 0 : consentChallenge!.hashCode) +
     (excludeNotBeforeClaim == null ? 0 : excludeNotBeforeClaim!.hashCode) +
+    (expiresAt == null ? 0 : expiresAt!.hashCode) +
     (extra.hashCode) +
     (headers == null ? 0 : headers!.hashCode) +
     (idTokenClaims == null ? 0 : idTokenClaims!.hashCode) +
@@ -121,7 +132,7 @@ class OAuth2ConsentSession {
     (username == null ? 0 : username!.hashCode);
 
   @override
-  String toString() => 'OAuth2ConsentSession[allowedTopLevelClaims=$allowedTopLevelClaims, clientId=$clientId, consentChallenge=$consentChallenge, excludeNotBeforeClaim=$excludeNotBeforeClaim, extra=$extra, headers=$headers, idTokenClaims=$idTokenClaims, kid=$kid, subject=$subject, username=$username]';
+  String toString() => 'OAuth2ConsentSession[allowedTopLevelClaims=$allowedTopLevelClaims, clientId=$clientId, consentChallenge=$consentChallenge, excludeNotBeforeClaim=$excludeNotBeforeClaim, expiresAt=$expiresAt, extra=$extra, headers=$headers, idTokenClaims=$idTokenClaims, kid=$kid, subject=$subject, username=$username]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -140,6 +151,11 @@ class OAuth2ConsentSession {
       _json[r'exclude_not_before_claim'] = excludeNotBeforeClaim;
     } else {
       _json[r'exclude_not_before_claim'] = null;
+    }
+    if (expiresAt != null) {
+      _json[r'expires_at'] = expiresAt;
+    } else {
+      _json[r'expires_at'] = null;
     }
       _json[r'extra'] = extra;
     if (headers != null) {
@@ -195,6 +211,7 @@ class OAuth2ConsentSession {
         clientId: mapValueOfType<String>(json, r'client_id'),
         consentChallenge: mapValueOfType<String>(json, r'consent_challenge'),
         excludeNotBeforeClaim: mapValueOfType<bool>(json, r'exclude_not_before_claim'),
+        expiresAt: OAuth2ConsentSessionExpiresAt.fromJson(json[r'expires_at']),
         extra: mapCastOfType<String, Object>(json, r'extra') ?? const {},
         headers: Headers.fromJson(json[r'headers']),
         idTokenClaims: IDTokenClaims.fromJson(json[r'id_token_claims']),

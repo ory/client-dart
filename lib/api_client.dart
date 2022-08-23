@@ -338,6 +338,8 @@ class ApiClient {
           return OAuth2ConsentRequestOpenIDConnectContext.fromJson(value);
         case 'OAuth2ConsentSession':
           return OAuth2ConsentSession.fromJson(value);
+        case 'OAuth2ConsentSessionExpiresAt':
+          return OAuth2ConsentSessionExpiresAt.fromJson(value);
         case 'OAuth2LoginRequest':
           return OAuth2LoginRequest.fromJson(value);
         case 'OAuth2LogoutRequest':

@@ -36,6 +36,11 @@ void main() {
       // TODO
     });
 
+    // OAuth2ConsentSessionExpiresAt expiresAt
+    test('to test the property `expiresAt`', () async {
+      // TODO
+    });
+
     // Map<String, Object> extra (default value: const {})
     test('to test the property `extra`', () async {
       // TODO

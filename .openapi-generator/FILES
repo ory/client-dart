@@ -78,6 +78,7 @@ doc/OAuth2Client.md
 doc/OAuth2ConsentRequest.md
 doc/OAuth2ConsentRequestOpenIDConnectContext.md
 doc/OAuth2ConsentSession.md
+doc/OAuth2ConsentSessionExpiresAt.md
 doc/OAuth2LoginRequest.md
 doc/OAuth2LogoutRequest.md
 doc/OAuth2TokenResponse.md
@@ -264,6 +265,7 @@ lib/model/o_auth2_client.dart
 lib/model/o_auth2_consent_request.dart
 lib/model/o_auth2_consent_request_open_id_connect_context.dart
 lib/model/o_auth2_consent_session.dart
+lib/model/o_auth2_consent_session_expires_at.dart
 lib/model/o_auth2_login_request.dart
 lib/model/o_auth2_logout_request.dart
 lib/model/o_auth2_token_response.dart
@@ -434,6 +436,7 @@ test/o_auth2_api_error_test.dart
 test/o_auth2_client_test.dart
 test/o_auth2_consent_request_open_id_connect_context_test.dart
 test/o_auth2_consent_request_test.dart
+test/o_auth2_consent_session_expires_at_test.dart
 test/o_auth2_consent_session_test.dart
 test/o_auth2_login_request_test.dart
 test/o_auth2_logout_request_test.dart

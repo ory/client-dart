@@ -106,6 +106,7 @@ part 'model/o_auth2_client.dart';
 part 'model/o_auth2_consent_request.dart';
 part 'model/o_auth2_consent_request_open_id_connect_context.dart';
 part 'model/o_auth2_consent_session.dart';
+part 'model/o_auth2_consent_session_expires_at.dart';
 part 'model/o_auth2_login_request.dart';
 part 'model/o_auth2_logout_request.dart';
 part 'model/o_auth2_token_response.dart';
