@@ -6,53 +6,62 @@
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'quota_branding_themes.g.dart';
+part 'plan.g.dart';
 
-/// QuotaBrandingThemes
+/// Plan
 ///
 /// Properties:
-/// * [canAdd] 
+/// * [name] - Name is the name of the plan.
+/// * [version] - Version is the version of the plan. The combination of `name@version` must be unique.
 @BuiltValue()
-abstract class QuotaBrandingThemes implements Built<QuotaBrandingThemes, QuotaBrandingThemesBuilder> {
-  @BuiltValueField(wireName: r'can_add')
-  bool? get canAdd;
+abstract class Plan implements Built<Plan, PlanBuilder> {
+  /// Name is the name of the plan.
+  @BuiltValueField(wireName: r'name')
+  String get name;
 
-  QuotaBrandingThemes._();
+  /// Version is the version of the plan. The combination of `name@version` must be unique.
+  @BuiltValueField(wireName: r'version')
+  int get version;
 
-  factory QuotaBrandingThemes([void updates(QuotaBrandingThemesBuilder b)]) = _$QuotaBrandingThemes;
+  Plan._();
+
+  factory Plan([void updates(PlanBuilder b)]) = _$Plan;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(QuotaBrandingThemesBuilder b) => b;
+  static void _defaults(PlanBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<QuotaBrandingThemes> get serializer => _$QuotaBrandingThemesSerializer();
+  static Serializer<Plan> get serializer => _$PlanSerializer();
 }
 
-class _$QuotaBrandingThemesSerializer implements PrimitiveSerializer<QuotaBrandingThemes> {
+class _$PlanSerializer implements PrimitiveSerializer<Plan> {
   @override
-  final Iterable<Type> types = const [QuotaBrandingThemes, _$QuotaBrandingThemes];
+  final Iterable<Type> types = const [Plan, _$Plan];
 
   @override
-  final String wireName = r'QuotaBrandingThemes';
+  final String wireName = r'Plan';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    QuotaBrandingThemes object, {
+    Plan object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.canAdd != null) {
-      yield r'can_add';
-      yield serializers.serialize(
-        object.canAdd,
-        specifiedType: const FullType(bool),
-      );
-    }
+    yield r'name';
+    yield serializers.serialize(
+      object.name,
+      specifiedType: const FullType(String),
+    );
+    yield r'version';
+    yield serializers.serialize(
+      object.version,
+      specifiedType: const FullType(int),
+    );
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    QuotaBrandingThemes object, {
+    Plan object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -63,19 +72,26 @@ class _$QuotaBrandingThemesSerializer implements PrimitiveSerializer<QuotaBrandi
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required QuotaBrandingThemesBuilder result,
+    required PlanBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'can_add':
+        case r'name':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.canAdd = valueDes;
+            specifiedType: const FullType(String),
+          ) as String;
+          result.name = valueDes;
+          break;
+        case r'version':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int;
+          result.version = valueDes;
           break;
         default:
           unhandled.add(key);
@@ -86,12 +102,12 @@ class _$QuotaBrandingThemesSerializer implements PrimitiveSerializer<QuotaBrandi
   }
 
   @override
-  QuotaBrandingThemes deserialize(
+  Plan deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = QuotaBrandingThemesBuilder();
+    final result = PlanBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

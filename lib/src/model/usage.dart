@@ -3,48 +3,49 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:ory_client/src/model/generic_usage.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'session_caching_quota.g.dart';
+part 'usage.g.dart';
 
-/// Session Caching Quota
+/// Usage
 ///
 /// Properties:
-/// * [canUse] 
+/// * [genericUsage] 
 @BuiltValue()
-abstract class SessionCachingQuota implements Built<SessionCachingQuota, SessionCachingQuotaBuilder> {
-  @BuiltValueField(wireName: r'can_use')
-  bool? get canUse;
+abstract class Usage implements Built<Usage, UsageBuilder> {
+  @BuiltValueField(wireName: r'GenericUsage')
+  GenericUsage? get genericUsage;
 
-  SessionCachingQuota._();
+  Usage._();
 
-  factory SessionCachingQuota([void updates(SessionCachingQuotaBuilder b)]) = _$SessionCachingQuota;
+  factory Usage([void updates(UsageBuilder b)]) = _$Usage;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SessionCachingQuotaBuilder b) => b;
+  static void _defaults(UsageBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<SessionCachingQuota> get serializer => _$SessionCachingQuotaSerializer();
+  static Serializer<Usage> get serializer => _$UsageSerializer();
 }
 
-class _$SessionCachingQuotaSerializer implements PrimitiveSerializer<SessionCachingQuota> {
+class _$UsageSerializer implements PrimitiveSerializer<Usage> {
   @override
-  final Iterable<Type> types = const [SessionCachingQuota, _$SessionCachingQuota];
+  final Iterable<Type> types = const [Usage, _$Usage];
 
   @override
-  final String wireName = r'SessionCachingQuota';
+  final String wireName = r'Usage';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    SessionCachingQuota object, {
+    Usage object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.canUse != null) {
-      yield r'can_use';
+    if (object.genericUsage != null) {
+      yield r'GenericUsage';
       yield serializers.serialize(
-        object.canUse,
-        specifiedType: const FullType(bool),
+        object.genericUsage,
+        specifiedType: const FullType(GenericUsage),
       );
     }
   }
@@ -52,7 +53,7 @@ class _$SessionCachingQuotaSerializer implements PrimitiveSerializer<SessionCach
   @override
   Object serialize(
     Serializers serializers,
-    SessionCachingQuota object, {
+    Usage object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -63,19 +64,19 @@ class _$SessionCachingQuotaSerializer implements PrimitiveSerializer<SessionCach
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required SessionCachingQuotaBuilder result,
+    required UsageBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'can_use':
+        case r'GenericUsage':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.canUse = valueDes;
+            specifiedType: const FullType(GenericUsage),
+          ) as GenericUsage;
+          result.genericUsage.replace(valueDes);
           break;
         default:
           unhandled.add(key);
@@ -86,12 +87,12 @@ class _$SessionCachingQuotaSerializer implements PrimitiveSerializer<SessionCach
   }
 
   @override
-  SessionCachingQuota deserialize(
+  Usage deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = SessionCachingQuotaBuilder();
+    final result = UsageBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

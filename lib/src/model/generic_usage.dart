@@ -6,75 +6,62 @@
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'invite_quota.g.dart';
+part 'generic_usage.g.dart';
 
-/// Project invite quota
+/// GenericUsage
 ///
 /// Properties:
-/// * [projectId] 
-/// * [remainingSeats] 
-/// * [totalSeats] 
+/// * [additionalPrice] - AdditionalPrice is the price per-unit exceeding IncludedUsage. A price of 0 means that no other items can be consumed.
+/// * [includedUsage] - IncludedUsage is the number of included items.
 @BuiltValue()
-abstract class InviteQuota implements Built<InviteQuota, InviteQuotaBuilder> {
-  @BuiltValueField(wireName: r'project_id')
-  String? get projectId;
+abstract class GenericUsage implements Built<GenericUsage, GenericUsageBuilder> {
+  /// AdditionalPrice is the price per-unit exceeding IncludedUsage. A price of 0 means that no other items can be consumed.
+  @BuiltValueField(wireName: r'additional_price')
+  int get additionalPrice;
 
-  @BuiltValueField(wireName: r'remaining_seats')
-  int? get remainingSeats;
+  /// IncludedUsage is the number of included items.
+  @BuiltValueField(wireName: r'included_usage')
+  int get includedUsage;
 
-  @BuiltValueField(wireName: r'total_seats')
-  int? get totalSeats;
+  GenericUsage._();
 
-  InviteQuota._();
-
-  factory InviteQuota([void updates(InviteQuotaBuilder b)]) = _$InviteQuota;
+  factory GenericUsage([void updates(GenericUsageBuilder b)]) = _$GenericUsage;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(InviteQuotaBuilder b) => b;
+  static void _defaults(GenericUsageBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<InviteQuota> get serializer => _$InviteQuotaSerializer();
+  static Serializer<GenericUsage> get serializer => _$GenericUsageSerializer();
 }
 
-class _$InviteQuotaSerializer implements PrimitiveSerializer<InviteQuota> {
+class _$GenericUsageSerializer implements PrimitiveSerializer<GenericUsage> {
   @override
-  final Iterable<Type> types = const [InviteQuota, _$InviteQuota];
+  final Iterable<Type> types = const [GenericUsage, _$GenericUsage];
 
   @override
-  final String wireName = r'InviteQuota';
+  final String wireName = r'GenericUsage';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    InviteQuota object, {
+    GenericUsage object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.projectId != null) {
-      yield r'project_id';
-      yield serializers.serialize(
-        object.projectId,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.remainingSeats != null) {
-      yield r'remaining_seats';
-      yield serializers.serialize(
-        object.remainingSeats,
-        specifiedType: const FullType(int),
-      );
-    }
-    if (object.totalSeats != null) {
-      yield r'total_seats';
-      yield serializers.serialize(
-        object.totalSeats,
-        specifiedType: const FullType(int),
-      );
-    }
+    yield r'additional_price';
+    yield serializers.serialize(
+      object.additionalPrice,
+      specifiedType: const FullType(int),
+    );
+    yield r'included_usage';
+    yield serializers.serialize(
+      object.includedUsage,
+      specifiedType: const FullType(int),
+    );
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    InviteQuota object, {
+    GenericUsage object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -85,33 +72,26 @@ class _$InviteQuotaSerializer implements PrimitiveSerializer<InviteQuota> {
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required InviteQuotaBuilder result,
+    required GenericUsageBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'project_id':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.projectId = valueDes;
-          break;
-        case r'remaining_seats':
+        case r'additional_price':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(int),
           ) as int;
-          result.remainingSeats = valueDes;
+          result.additionalPrice = valueDes;
           break;
-        case r'total_seats':
+        case r'included_usage':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(int),
           ) as int;
-          result.totalSeats = valueDes;
+          result.includedUsage = valueDes;
           break;
         default:
           unhandled.add(key);
@@ -122,12 +102,12 @@ class _$InviteQuotaSerializer implements PrimitiveSerializer<InviteQuota> {
   }
 
   @override
-  InviteQuota deserialize(
+  GenericUsage deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = InviteQuotaBuilder();
+    final result = GenericUsageBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
