@@ -1,4 +1,4 @@
-# ory_client.model.UpdateVerificationFlowWithCodeMethodBody
+# ory_client.model.UpdateVerificationFlowWithCodeMethod
 
 ## Load the model package
 ```dart

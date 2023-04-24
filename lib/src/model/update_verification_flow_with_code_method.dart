@@ -6,9 +6,9 @@
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'update_verification_flow_with_code_method_body.g.dart';
+part 'update_verification_flow_with_code_method.g.dart';
 
-/// UpdateVerificationFlowWithCodeMethodBody
+/// UpdateVerificationFlowWithCodeMethod
 ///
 /// Properties:
 /// * [code] - The verification code
@@ -17,7 +17,7 @@ part 'update_verification_flow_with_code_method_body.g.dart';
 /// * [flow] - The id of the flow
 /// * [method] - Method is the recovery method
 @BuiltValue()
-abstract class UpdateVerificationFlowWithCodeMethodBody implements Built<UpdateVerificationFlowWithCodeMethodBody, UpdateVerificationFlowWithCodeMethodBodyBuilder> {
+abstract class UpdateVerificationFlowWithCodeMethod implements Built<UpdateVerificationFlowWithCodeMethod, UpdateVerificationFlowWithCodeMethodBuilder> {
   /// The verification code
   @BuiltValueField(wireName: r'code')
   String? get code;
@@ -38,27 +38,27 @@ abstract class UpdateVerificationFlowWithCodeMethodBody implements Built<UpdateV
   @BuiltValueField(wireName: r'method')
   String? get method;
 
-  UpdateVerificationFlowWithCodeMethodBody._();
+  UpdateVerificationFlowWithCodeMethod._();
 
-  factory UpdateVerificationFlowWithCodeMethodBody([void updates(UpdateVerificationFlowWithCodeMethodBodyBuilder b)]) = _$UpdateVerificationFlowWithCodeMethodBody;
+  factory UpdateVerificationFlowWithCodeMethod([void updates(UpdateVerificationFlowWithCodeMethodBuilder b)]) = _$UpdateVerificationFlowWithCodeMethod;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(UpdateVerificationFlowWithCodeMethodBodyBuilder b) => b;
+  static void _defaults(UpdateVerificationFlowWithCodeMethodBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<UpdateVerificationFlowWithCodeMethodBody> get serializer => _$UpdateVerificationFlowWithCodeMethodBodySerializer();
+  static Serializer<UpdateVerificationFlowWithCodeMethod> get serializer => _$UpdateVerificationFlowWithCodeMethodSerializer();
 }
 
-class _$UpdateVerificationFlowWithCodeMethodBodySerializer implements PrimitiveSerializer<UpdateVerificationFlowWithCodeMethodBody> {
+class _$UpdateVerificationFlowWithCodeMethodSerializer implements PrimitiveSerializer<UpdateVerificationFlowWithCodeMethod> {
   @override
-  final Iterable<Type> types = const [UpdateVerificationFlowWithCodeMethodBody, _$UpdateVerificationFlowWithCodeMethodBody];
+  final Iterable<Type> types = const [UpdateVerificationFlowWithCodeMethod, _$UpdateVerificationFlowWithCodeMethod];
 
   @override
-  final String wireName = r'UpdateVerificationFlowWithCodeMethodBody';
+  final String wireName = r'UpdateVerificationFlowWithCodeMethod';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    UpdateVerificationFlowWithCodeMethodBody object, {
+    UpdateVerificationFlowWithCodeMethod object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
     if (object.code != null) {
@@ -101,7 +101,7 @@ class _$UpdateVerificationFlowWithCodeMethodBodySerializer implements PrimitiveS
   @override
   Object serialize(
     Serializers serializers,
-    UpdateVerificationFlowWithCodeMethodBody object, {
+    UpdateVerificationFlowWithCodeMethod object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -112,7 +112,7 @@ class _$UpdateVerificationFlowWithCodeMethodBodySerializer implements PrimitiveS
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required UpdateVerificationFlowWithCodeMethodBodyBuilder result,
+    required UpdateVerificationFlowWithCodeMethodBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
@@ -163,12 +163,12 @@ class _$UpdateVerificationFlowWithCodeMethodBodySerializer implements PrimitiveS
   }
 
   @override
-  UpdateVerificationFlowWithCodeMethodBody deserialize(
+  UpdateVerificationFlowWithCodeMethod deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = UpdateVerificationFlowWithCodeMethodBodyBuilder();
+    final result = UpdateVerificationFlowWithCodeMethodBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

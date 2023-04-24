@@ -1,12 +1,12 @@
 import 'package:test/test.dart';
 import 'package:ory_client/ory_client.dart';
 
-// tests for UpdateVerificationFlowWithCodeMethodBody
+// tests for UpdateVerificationFlowWithCodeMethod
 void main() {
-  final instance = UpdateVerificationFlowWithCodeMethodBodyBuilder();
+  final instance = UpdateVerificationFlowWithCodeMethodBuilder();
   // TODO add properties to the builder and call build()
 
-  group(UpdateVerificationFlowWithCodeMethodBody, () {
+  group(UpdateVerificationFlowWithCodeMethod, () {
     // The verification code
     // String code
     test('to test the property `code`', () async {
