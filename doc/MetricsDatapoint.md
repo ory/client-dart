@@ -1,4 +1,4 @@
-# ory_client.model.InternalProvisionMockSubscription
+# ory_client.model.MetricsDatapoint
 
 ## Load the model package
 ```dart
@@ -8,10 +8,8 @@ import 'package:ory_client/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**currency** | **String** | Currency usd USD eur Euro | 
-**identityId** | **String** | Identity ID | 
-**interval** | **String** | Billing Interval monthly Monthly yearly Yearly | 
-**plan** | **String** | Plan ID | 
+**count** | **int** | The count of events that occured in this time | 
+**time** | [**DateTime**](DateTime.md) | The time of the bucket | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
