@@ -3,65 +3,66 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:ory_client/src/model/project_invite.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:ory_client/src/model/member_invite.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'create_project_invites_response.g.dart';
+part 'create_invite_response.g.dart';
 
-/// Response to the create project invite request
+/// CreateInviteResponse
 ///
 /// Properties:
-/// * [allInvites] 
-/// * [createdInvites] 
+/// * [allInvites] - A list of all invites for this resource
+/// * [createdInvite] 
 @BuiltValue()
-abstract class CreateProjectInvitesResponse implements Built<CreateProjectInvitesResponse, CreateProjectInvitesResponseBuilder> {
+abstract class CreateInviteResponse implements Built<CreateInviteResponse, CreateInviteResponseBuilder> {
+  /// A list of all invites for this resource
   @BuiltValueField(wireName: r'all_invites')
-  BuiltList<ProjectInvite> get allInvites;
+  BuiltList<MemberInvite> get allInvites;
 
-  @BuiltValueField(wireName: r'created_invites')
-  BuiltList<ProjectInvite> get createdInvites;
+  @BuiltValueField(wireName: r'created_invite')
+  MemberInvite get createdInvite;
 
-  CreateProjectInvitesResponse._();
+  CreateInviteResponse._();
 
-  factory CreateProjectInvitesResponse([void updates(CreateProjectInvitesResponseBuilder b)]) = _$CreateProjectInvitesResponse;
+  factory CreateInviteResponse([void updates(CreateInviteResponseBuilder b)]) = _$CreateInviteResponse;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(CreateProjectInvitesResponseBuilder b) => b;
+  static void _defaults(CreateInviteResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<CreateProjectInvitesResponse> get serializer => _$CreateProjectInvitesResponseSerializer();
+  static Serializer<CreateInviteResponse> get serializer => _$CreateInviteResponseSerializer();
 }
 
-class _$CreateProjectInvitesResponseSerializer implements PrimitiveSerializer<CreateProjectInvitesResponse> {
+class _$CreateInviteResponseSerializer implements PrimitiveSerializer<CreateInviteResponse> {
   @override
-  final Iterable<Type> types = const [CreateProjectInvitesResponse, _$CreateProjectInvitesResponse];
+  final Iterable<Type> types = const [CreateInviteResponse, _$CreateInviteResponse];
 
   @override
-  final String wireName = r'CreateProjectInvitesResponse';
+  final String wireName = r'CreateInviteResponse';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    CreateProjectInvitesResponse object, {
+    CreateInviteResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
     yield r'all_invites';
     yield serializers.serialize(
       object.allInvites,
-      specifiedType: const FullType(BuiltList, [FullType(ProjectInvite)]),
+      specifiedType: const FullType(BuiltList, [FullType(MemberInvite)]),
     );
-    yield r'created_invites';
+    yield r'created_invite';
     yield serializers.serialize(
-      object.createdInvites,
-      specifiedType: const FullType(BuiltList, [FullType(ProjectInvite)]),
+      object.createdInvite,
+      specifiedType: const FullType(MemberInvite),
     );
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    CreateProjectInvitesResponse object, {
+    CreateInviteResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -72,7 +73,7 @@ class _$CreateProjectInvitesResponseSerializer implements PrimitiveSerializer<Cr
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required CreateProjectInvitesResponseBuilder result,
+    required CreateInviteResponseBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
@@ -82,16 +83,16 @@ class _$CreateProjectInvitesResponseSerializer implements PrimitiveSerializer<Cr
         case r'all_invites':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(ProjectInvite)]),
-          ) as BuiltList<ProjectInvite>;
+            specifiedType: const FullType(BuiltList, [FullType(MemberInvite)]),
+          ) as BuiltList<MemberInvite>;
           result.allInvites.replace(valueDes);
           break;
-        case r'created_invites':
+        case r'created_invite':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(ProjectInvite)]),
-          ) as BuiltList<ProjectInvite>;
-          result.createdInvites.replace(valueDes);
+            specifiedType: const FullType(MemberInvite),
+          ) as MemberInvite;
+          result.createdInvite.replace(valueDes);
           break;
         default:
           unhandled.add(key);
@@ -102,12 +103,12 @@ class _$CreateProjectInvitesResponseSerializer implements PrimitiveSerializer<Cr
   }
 
   @override
-  CreateProjectInvitesResponse deserialize(
+  CreateInviteResponse deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = CreateProjectInvitesResponseBuilder();
+    final result = CreateInviteResponseBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

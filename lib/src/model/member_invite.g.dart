@@ -1,58 +1,58 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'project_invite.dart';
+part of 'member_invite.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-const ProjectInviteStatusEnum _$projectInviteStatusEnum_pending =
-    const ProjectInviteStatusEnum._('pending');
-const ProjectInviteStatusEnum _$projectInviteStatusEnum_accepted =
-    const ProjectInviteStatusEnum._('accepted');
-const ProjectInviteStatusEnum _$projectInviteStatusEnum_declined =
-    const ProjectInviteStatusEnum._('declined');
-const ProjectInviteStatusEnum _$projectInviteStatusEnum_expired =
-    const ProjectInviteStatusEnum._('expired');
-const ProjectInviteStatusEnum _$projectInviteStatusEnum_cancelled =
-    const ProjectInviteStatusEnum._('cancelled');
-const ProjectInviteStatusEnum _$projectInviteStatusEnum_removed =
-    const ProjectInviteStatusEnum._('removed');
+const MemberInviteStatusEnum _$memberInviteStatusEnum_pending =
+    const MemberInviteStatusEnum._('pending');
+const MemberInviteStatusEnum _$memberInviteStatusEnum_accepted =
+    const MemberInviteStatusEnum._('accepted');
+const MemberInviteStatusEnum _$memberInviteStatusEnum_declined =
+    const MemberInviteStatusEnum._('declined');
+const MemberInviteStatusEnum _$memberInviteStatusEnum_expired =
+    const MemberInviteStatusEnum._('expired');
+const MemberInviteStatusEnum _$memberInviteStatusEnum_cancelled =
+    const MemberInviteStatusEnum._('cancelled');
+const MemberInviteStatusEnum _$memberInviteStatusEnum_removed =
+    const MemberInviteStatusEnum._('removed');
 
-ProjectInviteStatusEnum _$projectInviteStatusEnumValueOf(String name) {
+MemberInviteStatusEnum _$memberInviteStatusEnumValueOf(String name) {
   switch (name) {
     case 'pending':
-      return _$projectInviteStatusEnum_pending;
+      return _$memberInviteStatusEnum_pending;
     case 'accepted':
-      return _$projectInviteStatusEnum_accepted;
+      return _$memberInviteStatusEnum_accepted;
     case 'declined':
-      return _$projectInviteStatusEnum_declined;
+      return _$memberInviteStatusEnum_declined;
     case 'expired':
-      return _$projectInviteStatusEnum_expired;
+      return _$memberInviteStatusEnum_expired;
     case 'cancelled':
-      return _$projectInviteStatusEnum_cancelled;
+      return _$memberInviteStatusEnum_cancelled;
     case 'removed':
-      return _$projectInviteStatusEnum_removed;
+      return _$memberInviteStatusEnum_removed;
     default:
       throw new ArgumentError(name);
   }
 }
 
-final BuiltSet<ProjectInviteStatusEnum> _$projectInviteStatusEnumValues =
-    new BuiltSet<ProjectInviteStatusEnum>(const <ProjectInviteStatusEnum>[
-  _$projectInviteStatusEnum_pending,
-  _$projectInviteStatusEnum_accepted,
-  _$projectInviteStatusEnum_declined,
-  _$projectInviteStatusEnum_expired,
-  _$projectInviteStatusEnum_cancelled,
-  _$projectInviteStatusEnum_removed,
+final BuiltSet<MemberInviteStatusEnum> _$memberInviteStatusEnumValues =
+    new BuiltSet<MemberInviteStatusEnum>(const <MemberInviteStatusEnum>[
+  _$memberInviteStatusEnum_pending,
+  _$memberInviteStatusEnum_accepted,
+  _$memberInviteStatusEnum_declined,
+  _$memberInviteStatusEnum_expired,
+  _$memberInviteStatusEnum_cancelled,
+  _$memberInviteStatusEnum_removed,
 ]);
 
-Serializer<ProjectInviteStatusEnum> _$projectInviteStatusEnumSerializer =
-    new _$ProjectInviteStatusEnumSerializer();
+Serializer<MemberInviteStatusEnum> _$memberInviteStatusEnumSerializer =
+    new _$MemberInviteStatusEnumSerializer();
 
-class _$ProjectInviteStatusEnumSerializer
-    implements PrimitiveSerializer<ProjectInviteStatusEnum> {
+class _$MemberInviteStatusEnumSerializer
+    implements PrimitiveSerializer<MemberInviteStatusEnum> {
   static const Map<String, Object> _toWire = const <String, Object>{
     'pending': 'pending',
     'accepted': 'accepted',
@@ -71,24 +71,23 @@ class _$ProjectInviteStatusEnumSerializer
   };
 
   @override
-  final Iterable<Type> types = const <Type>[ProjectInviteStatusEnum];
+  final Iterable<Type> types = const <Type>[MemberInviteStatusEnum];
   @override
-  final String wireName = 'ProjectInviteStatusEnum';
+  final String wireName = 'MemberInviteStatusEnum';
 
   @override
-  Object serialize(Serializers serializers, ProjectInviteStatusEnum object,
+  Object serialize(Serializers serializers, MemberInviteStatusEnum object,
           {FullType specifiedType = FullType.unspecified}) =>
       _toWire[object.name] ?? object.name;
 
   @override
-  ProjectInviteStatusEnum deserialize(
-          Serializers serializers, Object serialized,
+  MemberInviteStatusEnum deserialize(Serializers serializers, Object serialized,
           {FullType specifiedType = FullType.unspecified}) =>
-      ProjectInviteStatusEnum.valueOf(
+      MemberInviteStatusEnum.valueOf(
           _fromWire[serialized] ?? (serialized is String ? serialized : ''));
 }
 
-class _$ProjectInvite extends ProjectInvite {
+class _$MemberInvite extends MemberInvite {
   @override
   final DateTime createdAt;
   @override
@@ -104,14 +103,14 @@ class _$ProjectInvite extends ProjectInvite {
   @override
   final String projectId;
   @override
-  final ProjectInviteStatusEnum status;
+  final MemberInviteStatusEnum status;
   @override
   final DateTime updatedAt;
 
-  factory _$ProjectInvite([void Function(ProjectInviteBuilder)? updates]) =>
-      (new ProjectInviteBuilder()..update(updates))._build();
+  factory _$MemberInvite([void Function(MemberInviteBuilder)? updates]) =>
+      (new MemberInviteBuilder()..update(updates))._build();
 
-  _$ProjectInvite._(
+  _$MemberInvite._(
       {required this.createdAt,
       required this.id,
       required this.inviteeEmail,
@@ -123,31 +122,31 @@ class _$ProjectInvite extends ProjectInvite {
       required this.updatedAt})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        createdAt, r'ProjectInvite', 'createdAt');
-    BuiltValueNullFieldError.checkNotNull(id, r'ProjectInvite', 'id');
+        createdAt, r'MemberInvite', 'createdAt');
+    BuiltValueNullFieldError.checkNotNull(id, r'MemberInvite', 'id');
     BuiltValueNullFieldError.checkNotNull(
-        inviteeEmail, r'ProjectInvite', 'inviteeEmail');
+        inviteeEmail, r'MemberInvite', 'inviteeEmail');
     BuiltValueNullFieldError.checkNotNull(
-        ownerEmail, r'ProjectInvite', 'ownerEmail');
-    BuiltValueNullFieldError.checkNotNull(ownerId, r'ProjectInvite', 'ownerId');
+        ownerEmail, r'MemberInvite', 'ownerEmail');
+    BuiltValueNullFieldError.checkNotNull(ownerId, r'MemberInvite', 'ownerId');
     BuiltValueNullFieldError.checkNotNull(
-        projectId, r'ProjectInvite', 'projectId');
-    BuiltValueNullFieldError.checkNotNull(status, r'ProjectInvite', 'status');
+        projectId, r'MemberInvite', 'projectId');
+    BuiltValueNullFieldError.checkNotNull(status, r'MemberInvite', 'status');
     BuiltValueNullFieldError.checkNotNull(
-        updatedAt, r'ProjectInvite', 'updatedAt');
+        updatedAt, r'MemberInvite', 'updatedAt');
   }
 
   @override
-  ProjectInvite rebuild(void Function(ProjectInviteBuilder) updates) =>
+  MemberInvite rebuild(void Function(MemberInviteBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ProjectInviteBuilder toBuilder() => new ProjectInviteBuilder()..replace(this);
+  MemberInviteBuilder toBuilder() => new MemberInviteBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ProjectInvite &&
+    return other is MemberInvite &&
         createdAt == other.createdAt &&
         id == other.id &&
         inviteeEmail == other.inviteeEmail &&
@@ -177,7 +176,7 @@ class _$ProjectInvite extends ProjectInvite {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ProjectInvite')
+    return (newBuiltValueToStringHelper(r'MemberInvite')
           ..add('createdAt', createdAt)
           ..add('id', id)
           ..add('inviteeEmail', inviteeEmail)
@@ -191,9 +190,9 @@ class _$ProjectInvite extends ProjectInvite {
   }
 }
 
-class ProjectInviteBuilder
-    implements Builder<ProjectInvite, ProjectInviteBuilder> {
-  _$ProjectInvite? _$v;
+class MemberInviteBuilder
+    implements Builder<MemberInvite, MemberInviteBuilder> {
+  _$MemberInvite? _$v;
 
   DateTime? _createdAt;
   DateTime? get createdAt => _$this._createdAt;
@@ -223,19 +222,19 @@ class ProjectInviteBuilder
   String? get projectId => _$this._projectId;
   set projectId(String? projectId) => _$this._projectId = projectId;
 
-  ProjectInviteStatusEnum? _status;
-  ProjectInviteStatusEnum? get status => _$this._status;
-  set status(ProjectInviteStatusEnum? status) => _$this._status = status;
+  MemberInviteStatusEnum? _status;
+  MemberInviteStatusEnum? get status => _$this._status;
+  set status(MemberInviteStatusEnum? status) => _$this._status = status;
 
   DateTime? _updatedAt;
   DateTime? get updatedAt => _$this._updatedAt;
   set updatedAt(DateTime? updatedAt) => _$this._updatedAt = updatedAt;
 
-  ProjectInviteBuilder() {
-    ProjectInvite._defaults(this);
+  MemberInviteBuilder() {
+    MemberInvite._defaults(this);
   }
 
-  ProjectInviteBuilder get _$this {
+  MemberInviteBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _createdAt = $v.createdAt;
@@ -253,39 +252,39 @@ class ProjectInviteBuilder
   }
 
   @override
-  void replace(ProjectInvite other) {
+  void replace(MemberInvite other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ProjectInvite;
+    _$v = other as _$MemberInvite;
   }
 
   @override
-  void update(void Function(ProjectInviteBuilder)? updates) {
+  void update(void Function(MemberInviteBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  ProjectInvite build() => _build();
+  MemberInvite build() => _build();
 
-  _$ProjectInvite _build() {
+  _$MemberInvite _build() {
     final _$result = _$v ??
-        new _$ProjectInvite._(
+        new _$MemberInvite._(
             createdAt: BuiltValueNullFieldError.checkNotNull(
-                createdAt, r'ProjectInvite', 'createdAt'),
+                createdAt, r'MemberInvite', 'createdAt'),
             id: BuiltValueNullFieldError.checkNotNull(
-                id, r'ProjectInvite', 'id'),
+                id, r'MemberInvite', 'id'),
             inviteeEmail: BuiltValueNullFieldError.checkNotNull(
-                inviteeEmail, r'ProjectInvite', 'inviteeEmail'),
+                inviteeEmail, r'MemberInvite', 'inviteeEmail'),
             inviteeId: inviteeId,
             ownerEmail: BuiltValueNullFieldError.checkNotNull(
-                ownerEmail, r'ProjectInvite', 'ownerEmail'),
+                ownerEmail, r'MemberInvite', 'ownerEmail'),
             ownerId: BuiltValueNullFieldError.checkNotNull(
-                ownerId, r'ProjectInvite', 'ownerId'),
+                ownerId, r'MemberInvite', 'ownerId'),
             projectId: BuiltValueNullFieldError.checkNotNull(
-                projectId, r'ProjectInvite', 'projectId'),
+                projectId, r'MemberInvite', 'projectId'),
             status: BuiltValueNullFieldError.checkNotNull(
-                status, r'ProjectInvite', 'status'),
+                status, r'MemberInvite', 'status'),
             updatedAt: BuiltValueNullFieldError.checkNotNull(
-                updatedAt, r'ProjectInvite', 'updatedAt'));
+                updatedAt, r'MemberInvite', 'updatedAt'));
     replace(_$result);
     return _$result;
   }

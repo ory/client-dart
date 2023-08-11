@@ -1,4 +1,4 @@
-# ory_client.model.ProjectInvite
+# ory_client.model.MemberInvite
 
 ## Load the model package
 ```dart

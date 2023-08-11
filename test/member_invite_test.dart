@@ -1,12 +1,12 @@
 import 'package:test/test.dart';
 import 'package:ory_client/ory_client.dart';
 
-// tests for ProjectInvite
+// tests for MemberInvite
 void main() {
-  final instance = ProjectInviteBuilder();
+  final instance = MemberInviteBuilder();
   // TODO add properties to the builder and call build()
 
-  group(ProjectInvite, () {
+  group(MemberInvite, () {
     // The Project's Revision Creation Date
     // DateTime createdAt
     test('to test the property `createdAt`', () async {

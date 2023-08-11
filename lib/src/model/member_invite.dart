@@ -7,9 +7,9 @@ import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'project_invite.g.dart';
+part 'member_invite.g.dart';
 
-/// ProjectInvite
+/// MemberInvite
 ///
 /// Properties:
 /// * [createdAt] - The Project's Revision Creation Date
@@ -22,7 +22,7 @@ part 'project_invite.g.dart';
 /// * [status] - The invite's status Keeps track of the invites status such as pending, accepted, declined, expired pending PENDING accepted ACCEPTED declined DECLINED expired EXPIRED cancelled CANCELLED removed REMOVED
 /// * [updatedAt] - Last Time Project's Revision was Updated
 @BuiltValue()
-abstract class ProjectInvite implements Built<ProjectInvite, ProjectInviteBuilder> {
+abstract class MemberInvite implements Built<MemberInvite, MemberInviteBuilder> {
   /// The Project's Revision Creation Date
   @BuiltValueField(wireName: r'created_at')
   DateTime get createdAt;
@@ -52,34 +52,34 @@ abstract class ProjectInvite implements Built<ProjectInvite, ProjectInviteBuilde
 
   /// The invite's status Keeps track of the invites status such as pending, accepted, declined, expired pending PENDING accepted ACCEPTED declined DECLINED expired EXPIRED cancelled CANCELLED removed REMOVED
   @BuiltValueField(wireName: r'status')
-  ProjectInviteStatusEnum get status;
+  MemberInviteStatusEnum get status;
   // enum statusEnum {  pending,  accepted,  declined,  expired,  cancelled,  removed,  };
 
   /// Last Time Project's Revision was Updated
   @BuiltValueField(wireName: r'updated_at')
   DateTime get updatedAt;
 
-  ProjectInvite._();
+  MemberInvite._();
 
-  factory ProjectInvite([void updates(ProjectInviteBuilder b)]) = _$ProjectInvite;
+  factory MemberInvite([void updates(MemberInviteBuilder b)]) = _$MemberInvite;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ProjectInviteBuilder b) => b;
+  static void _defaults(MemberInviteBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ProjectInvite> get serializer => _$ProjectInviteSerializer();
+  static Serializer<MemberInvite> get serializer => _$MemberInviteSerializer();
 }
 
-class _$ProjectInviteSerializer implements PrimitiveSerializer<ProjectInvite> {
+class _$MemberInviteSerializer implements PrimitiveSerializer<MemberInvite> {
   @override
-  final Iterable<Type> types = const [ProjectInvite, _$ProjectInvite];
+  final Iterable<Type> types = const [MemberInvite, _$MemberInvite];
 
   @override
-  final String wireName = r'ProjectInvite';
+  final String wireName = r'MemberInvite';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    ProjectInvite object, {
+    MemberInvite object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
     yield r'created_at';
@@ -122,7 +122,7 @@ class _$ProjectInviteSerializer implements PrimitiveSerializer<ProjectInvite> {
     yield r'status';
     yield serializers.serialize(
       object.status,
-      specifiedType: const FullType(ProjectInviteStatusEnum),
+      specifiedType: const FullType(MemberInviteStatusEnum),
     );
     yield r'updated_at';
     yield serializers.serialize(
@@ -134,7 +134,7 @@ class _$ProjectInviteSerializer implements PrimitiveSerializer<ProjectInvite> {
   @override
   Object serialize(
     Serializers serializers,
-    ProjectInvite object, {
+    MemberInvite object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -145,7 +145,7 @@ class _$ProjectInviteSerializer implements PrimitiveSerializer<ProjectInvite> {
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required ProjectInviteBuilder result,
+    required MemberInviteBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
@@ -205,8 +205,8 @@ class _$ProjectInviteSerializer implements PrimitiveSerializer<ProjectInvite> {
         case r'status':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(ProjectInviteStatusEnum),
-          ) as ProjectInviteStatusEnum;
+            specifiedType: const FullType(MemberInviteStatusEnum),
+          ) as MemberInviteStatusEnum;
           result.status = valueDes;
           break;
         case r'updated_at':
@@ -225,12 +225,12 @@ class _$ProjectInviteSerializer implements PrimitiveSerializer<ProjectInvite> {
   }
 
   @override
-  ProjectInvite deserialize(
+  MemberInvite deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = ProjectInviteBuilder();
+    final result = MemberInviteBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -245,32 +245,32 @@ class _$ProjectInviteSerializer implements PrimitiveSerializer<ProjectInvite> {
   }
 }
 
-class ProjectInviteStatusEnum extends EnumClass {
+class MemberInviteStatusEnum extends EnumClass {
 
   /// The invite's status Keeps track of the invites status such as pending, accepted, declined, expired pending PENDING accepted ACCEPTED declined DECLINED expired EXPIRED cancelled CANCELLED removed REMOVED
   @BuiltValueEnumConst(wireName: r'pending')
-  static const ProjectInviteStatusEnum pending = _$projectInviteStatusEnum_pending;
+  static const MemberInviteStatusEnum pending = _$memberInviteStatusEnum_pending;
   /// The invite's status Keeps track of the invites status such as pending, accepted, declined, expired pending PENDING accepted ACCEPTED declined DECLINED expired EXPIRED cancelled CANCELLED removed REMOVED
   @BuiltValueEnumConst(wireName: r'accepted')
-  static const ProjectInviteStatusEnum accepted = _$projectInviteStatusEnum_accepted;
+  static const MemberInviteStatusEnum accepted = _$memberInviteStatusEnum_accepted;
   /// The invite's status Keeps track of the invites status such as pending, accepted, declined, expired pending PENDING accepted ACCEPTED declined DECLINED expired EXPIRED cancelled CANCELLED removed REMOVED
   @BuiltValueEnumConst(wireName: r'declined')
-  static const ProjectInviteStatusEnum declined = _$projectInviteStatusEnum_declined;
+  static const MemberInviteStatusEnum declined = _$memberInviteStatusEnum_declined;
   /// The invite's status Keeps track of the invites status such as pending, accepted, declined, expired pending PENDING accepted ACCEPTED declined DECLINED expired EXPIRED cancelled CANCELLED removed REMOVED
   @BuiltValueEnumConst(wireName: r'expired')
-  static const ProjectInviteStatusEnum expired = _$projectInviteStatusEnum_expired;
+  static const MemberInviteStatusEnum expired = _$memberInviteStatusEnum_expired;
   /// The invite's status Keeps track of the invites status such as pending, accepted, declined, expired pending PENDING accepted ACCEPTED declined DECLINED expired EXPIRED cancelled CANCELLED removed REMOVED
   @BuiltValueEnumConst(wireName: r'cancelled')
-  static const ProjectInviteStatusEnum cancelled = _$projectInviteStatusEnum_cancelled;
+  static const MemberInviteStatusEnum cancelled = _$memberInviteStatusEnum_cancelled;
   /// The invite's status Keeps track of the invites status such as pending, accepted, declined, expired pending PENDING accepted ACCEPTED declined DECLINED expired EXPIRED cancelled CANCELLED removed REMOVED
   @BuiltValueEnumConst(wireName: r'removed')
-  static const ProjectInviteStatusEnum removed = _$projectInviteStatusEnum_removed;
+  static const MemberInviteStatusEnum removed = _$memberInviteStatusEnum_removed;
 
-  static Serializer<ProjectInviteStatusEnum> get serializer => _$projectInviteStatusEnumSerializer;
+  static Serializer<MemberInviteStatusEnum> get serializer => _$memberInviteStatusEnumSerializer;
 
-  const ProjectInviteStatusEnum._(String name): super(name);
+  const MemberInviteStatusEnum._(String name): super(name);
 
-  static BuiltSet<ProjectInviteStatusEnum> get values => _$projectInviteStatusEnumValues;
-  static ProjectInviteStatusEnum valueOf(String name) => _$projectInviteStatusEnumValueOf(name);
+  static BuiltSet<MemberInviteStatusEnum> get values => _$memberInviteStatusEnumValues;
+  static MemberInviteStatusEnum valueOf(String name) => _$memberInviteStatusEnumValueOf(name);
 }
 

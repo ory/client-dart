@@ -3,50 +3,49 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'create_project_invite.g.dart';
+part 'create_project_member_invite_body.g.dart';
 
-/// Create Project Invite Request Body
+/// Create Project MemberInvite Request Body
 ///
 /// Properties:
-/// * [inviteeEmails] - A list of emails to invite
+/// * [inviteeEmail] - A email to invite
 @BuiltValue()
-abstract class CreateProjectInvite implements Built<CreateProjectInvite, CreateProjectInviteBuilder> {
-  /// A list of emails to invite
-  @BuiltValueField(wireName: r'invitee_emails')
-  BuiltList<String>? get inviteeEmails;
+abstract class CreateProjectMemberInviteBody implements Built<CreateProjectMemberInviteBody, CreateProjectMemberInviteBodyBuilder> {
+  /// A email to invite
+  @BuiltValueField(wireName: r'invitee_email')
+  String? get inviteeEmail;
 
-  CreateProjectInvite._();
+  CreateProjectMemberInviteBody._();
 
-  factory CreateProjectInvite([void updates(CreateProjectInviteBuilder b)]) = _$CreateProjectInvite;
+  factory CreateProjectMemberInviteBody([void updates(CreateProjectMemberInviteBodyBuilder b)]) = _$CreateProjectMemberInviteBody;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(CreateProjectInviteBuilder b) => b;
+  static void _defaults(CreateProjectMemberInviteBodyBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<CreateProjectInvite> get serializer => _$CreateProjectInviteSerializer();
+  static Serializer<CreateProjectMemberInviteBody> get serializer => _$CreateProjectMemberInviteBodySerializer();
 }
 
-class _$CreateProjectInviteSerializer implements PrimitiveSerializer<CreateProjectInvite> {
+class _$CreateProjectMemberInviteBodySerializer implements PrimitiveSerializer<CreateProjectMemberInviteBody> {
   @override
-  final Iterable<Type> types = const [CreateProjectInvite, _$CreateProjectInvite];
+  final Iterable<Type> types = const [CreateProjectMemberInviteBody, _$CreateProjectMemberInviteBody];
 
   @override
-  final String wireName = r'CreateProjectInvite';
+  final String wireName = r'CreateProjectMemberInviteBody';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    CreateProjectInvite object, {
+    CreateProjectMemberInviteBody object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.inviteeEmails != null) {
-      yield r'invitee_emails';
+    if (object.inviteeEmail != null) {
+      yield r'invitee_email';
       yield serializers.serialize(
-        object.inviteeEmails,
-        specifiedType: const FullType(BuiltList, [FullType(String)]),
+        object.inviteeEmail,
+        specifiedType: const FullType(String),
       );
     }
   }
@@ -54,7 +53,7 @@ class _$CreateProjectInviteSerializer implements PrimitiveSerializer<CreateProje
   @override
   Object serialize(
     Serializers serializers,
-    CreateProjectInvite object, {
+    CreateProjectMemberInviteBody object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -65,19 +64,19 @@ class _$CreateProjectInviteSerializer implements PrimitiveSerializer<CreateProje
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required CreateProjectInviteBuilder result,
+    required CreateProjectMemberInviteBodyBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'invitee_emails':
+        case r'invitee_email':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(String)]),
-          ) as BuiltList<String>;
-          result.inviteeEmails.replace(valueDes);
+            specifiedType: const FullType(String),
+          ) as String;
+          result.inviteeEmail = valueDes;
           break;
         default:
           unhandled.add(key);
@@ -88,12 +87,12 @@ class _$CreateProjectInviteSerializer implements PrimitiveSerializer<CreateProje
   }
 
   @override
-  CreateProjectInvite deserialize(
+  CreateProjectMemberInviteBody deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = CreateProjectInviteBuilder();
+    final result = CreateProjectMemberInviteBodyBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
