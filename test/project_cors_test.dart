@@ -1,12 +1,12 @@
 import 'package:test/test.dart';
 import 'package:ory_client/ory_client.dart';
 
-// tests for CORS
+// tests for ProjectCors
 void main() {
-  final instance = CORSBuilder();
+  final instance = ProjectCorsBuilder();
   // TODO add properties to the builder and call build()
 
-  group(CORS, () {
+  group(ProjectCors, () {
     // Whether CORS is enabled for this endpoint.
     // bool enabled
     test('to test the property `enabled`', () async {

@@ -1,4 +1,4 @@
-# ory_client.model.SetProject
+# ory_client.model.ProjectCors
 
 ## Load the model package
 ```dart
@@ -8,10 +8,8 @@ import 'package:ory_client/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**corsAdmin** | [**ProjectCors**](ProjectCors.md) |  | 
-**corsPublic** | [**ProjectCors**](ProjectCors.md) |  | 
-**name** | **String** | The name of the project. | 
-**services** | [**ProjectServices**](ProjectServices.md) |  | 
+**enabled** | **bool** | Whether CORS is enabled for this endpoint. | 
+**origins** | **BuiltList&lt;String&gt;** | The allowed origins. Use `*` to allow all origins. A wildcard can also be used in the subdomain, i.e. `https://_*.example.com` will allow all origins on all subdomains of `example.com`. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

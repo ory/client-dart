@@ -1,36 +1,36 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'cors.dart';
+part of 'project_cors.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-class _$CORS extends CORS {
+class _$ProjectCors extends ProjectCors {
   @override
   final bool enabled;
   @override
   final BuiltList<String> origins;
 
-  factory _$CORS([void Function(CORSBuilder)? updates]) =>
-      (new CORSBuilder()..update(updates))._build();
+  factory _$ProjectCors([void Function(ProjectCorsBuilder)? updates]) =>
+      (new ProjectCorsBuilder()..update(updates))._build();
 
-  _$CORS._({required this.enabled, required this.origins}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(enabled, r'CORS', 'enabled');
-    BuiltValueNullFieldError.checkNotNull(origins, r'CORS', 'origins');
+  _$ProjectCors._({required this.enabled, required this.origins}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(enabled, r'ProjectCors', 'enabled');
+    BuiltValueNullFieldError.checkNotNull(origins, r'ProjectCors', 'origins');
   }
 
   @override
-  CORS rebuild(void Function(CORSBuilder) updates) =>
+  ProjectCors rebuild(void Function(ProjectCorsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CORSBuilder toBuilder() => new CORSBuilder()..replace(this);
+  ProjectCorsBuilder toBuilder() => new ProjectCorsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CORS &&
+    return other is ProjectCors &&
         enabled == other.enabled &&
         origins == other.origins;
   }
@@ -46,15 +46,15 @@ class _$CORS extends CORS {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CORS')
+    return (newBuiltValueToStringHelper(r'ProjectCors')
           ..add('enabled', enabled)
           ..add('origins', origins))
         .toString();
   }
 }
 
-class CORSBuilder implements Builder<CORS, CORSBuilder> {
-  _$CORS? _$v;
+class ProjectCorsBuilder implements Builder<ProjectCors, ProjectCorsBuilder> {
+  _$ProjectCors? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
@@ -65,11 +65,11 @@ class CORSBuilder implements Builder<CORS, CORSBuilder> {
       _$this._origins ??= new ListBuilder<String>();
   set origins(ListBuilder<String>? origins) => _$this._origins = origins;
 
-  CORSBuilder() {
-    CORS._defaults(this);
+  ProjectCorsBuilder() {
+    ProjectCors._defaults(this);
   }
 
-  CORSBuilder get _$this {
+  ProjectCorsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enabled = $v.enabled;
@@ -80,26 +80,26 @@ class CORSBuilder implements Builder<CORS, CORSBuilder> {
   }
 
   @override
-  void replace(CORS other) {
+  void replace(ProjectCors other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CORS;
+    _$v = other as _$ProjectCors;
   }
 
   @override
-  void update(void Function(CORSBuilder)? updates) {
+  void update(void Function(ProjectCorsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CORS build() => _build();
+  ProjectCors build() => _build();
 
-  _$CORS _build() {
-    _$CORS _$result;
+  _$ProjectCors _build() {
+    _$ProjectCors _$result;
     try {
       _$result = _$v ??
-          new _$CORS._(
+          new _$ProjectCors._(
               enabled: BuiltValueNullFieldError.checkNotNull(
-                  enabled, r'CORS', 'enabled'),
+                  enabled, r'ProjectCors', 'enabled'),
               origins: origins.build());
     } catch (_) {
       late String _$failedField;
@@ -108,7 +108,7 @@ class CORSBuilder implements Builder<CORS, CORSBuilder> {
         origins.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'CORS', _$failedField, e.toString());
+            r'ProjectCors', _$failedField, e.toString());
       }
       rethrow;
     }

@@ -4,65 +4,56 @@
 
 // ignore_for_file: unused_element
 import 'package:built_collection/built_collection.dart';
+import 'package:ory_client/src/model/attributes_count_datapoint.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'cors.g.dart';
+part 'get_attributes_count_response.g.dart';
 
-/// CORS
+/// Response of the getAttributesCount endpoint
 ///
 /// Properties:
-/// * [enabled] - Whether CORS is enabled for this endpoint.
-/// * [origins] - The allowed origins. Use `*` to allow all origins. A wildcard can also be used in the subdomain, i.e. `https://_*.example.com` will allow all origins on all subdomains of `example.com`.
+/// * [data] - The list of data points.
 @BuiltValue()
-abstract class CORS implements Built<CORS, CORSBuilder> {
-  /// Whether CORS is enabled for this endpoint.
-  @BuiltValueField(wireName: r'enabled')
-  bool get enabled;
+abstract class GetAttributesCountResponse implements Built<GetAttributesCountResponse, GetAttributesCountResponseBuilder> {
+  /// The list of data points.
+  @BuiltValueField(wireName: r'data')
+  BuiltList<AttributesCountDatapoint> get data;
 
-  /// The allowed origins. Use `*` to allow all origins. A wildcard can also be used in the subdomain, i.e. `https://_*.example.com` will allow all origins on all subdomains of `example.com`.
-  @BuiltValueField(wireName: r'origins')
-  BuiltList<String> get origins;
+  GetAttributesCountResponse._();
 
-  CORS._();
-
-  factory CORS([void updates(CORSBuilder b)]) = _$CORS;
+  factory GetAttributesCountResponse([void updates(GetAttributesCountResponseBuilder b)]) = _$GetAttributesCountResponse;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(CORSBuilder b) => b;
+  static void _defaults(GetAttributesCountResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<CORS> get serializer => _$CORSSerializer();
+  static Serializer<GetAttributesCountResponse> get serializer => _$GetAttributesCountResponseSerializer();
 }
 
-class _$CORSSerializer implements PrimitiveSerializer<CORS> {
+class _$GetAttributesCountResponseSerializer implements PrimitiveSerializer<GetAttributesCountResponse> {
   @override
-  final Iterable<Type> types = const [CORS, _$CORS];
+  final Iterable<Type> types = const [GetAttributesCountResponse, _$GetAttributesCountResponse];
 
   @override
-  final String wireName = r'CORS';
+  final String wireName = r'GetAttributesCountResponse';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    CORS object, {
+    GetAttributesCountResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'enabled';
+    yield r'data';
     yield serializers.serialize(
-      object.enabled,
-      specifiedType: const FullType(bool),
-    );
-    yield r'origins';
-    yield serializers.serialize(
-      object.origins,
-      specifiedType: const FullType(BuiltList, [FullType(String)]),
+      object.data,
+      specifiedType: const FullType(BuiltList, [FullType(AttributesCountDatapoint)]),
     );
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    CORS object, {
+    GetAttributesCountResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -73,26 +64,19 @@ class _$CORSSerializer implements PrimitiveSerializer<CORS> {
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required CORSBuilder result,
+    required GetAttributesCountResponseBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'enabled':
+        case r'data':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.enabled = valueDes;
-          break;
-        case r'origins':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(BuiltList, [FullType(String)]),
-          ) as BuiltList<String>;
-          result.origins.replace(valueDes);
+            specifiedType: const FullType(BuiltList, [FullType(AttributesCountDatapoint)]),
+          ) as BuiltList<AttributesCountDatapoint>;
+          result.data.replace(valueDes);
           break;
         default:
           unhandled.add(key);
@@ -103,12 +87,12 @@ class _$CORSSerializer implements PrimitiveSerializer<CORS> {
   }
 
   @override
-  CORS deserialize(
+  GetAttributesCountResponse deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = CORSBuilder();
+    final result = GetAttributesCountResponseBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
