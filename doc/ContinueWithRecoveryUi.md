@@ -1,4 +1,4 @@
-# ory_client.model.ContinueWith
+# ory_client.model.ContinueWithRecoveryUi
 
 ## Load the model package
 ```dart
@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **action** | **String** | Action will always be `show_recovery_ui` show_recovery_ui ContinueWithActionShowRecoveryUIString | 
 **flow** | [**ContinueWithRecoveryUiFlow**](ContinueWithRecoveryUiFlow.md) |  | 
-**orySessionToken** | **String** | Token is the token of the session | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

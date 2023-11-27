@@ -1,4 +1,4 @@
-# ory_client.model.ContinueWith
+# ory_client.model.ContinueWithSettingsUiFlow
 
 ## Load the model package
 ```dart
@@ -8,9 +8,7 @@ import 'package:ory_client/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**action** | **String** | Action will always be `show_recovery_ui` show_recovery_ui ContinueWithActionShowRecoveryUIString | 
-**flow** | [**ContinueWithRecoveryUiFlow**](ContinueWithRecoveryUiFlow.md) |  | 
-**orySessionToken** | **String** | Token is the token of the session | 
+**id** | **String** | The ID of the settings flow | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

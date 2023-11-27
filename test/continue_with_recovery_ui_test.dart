@@ -1,12 +1,12 @@
 import 'package:test/test.dart';
 import 'package:ory_client/ory_client.dart';
 
-// tests for ContinueWith
+// tests for ContinueWithRecoveryUi
 void main() {
-  final instance = ContinueWithBuilder();
+  final instance = ContinueWithRecoveryUiBuilder();
   // TODO add properties to the builder and call build()
 
-  group(ContinueWith, () {
+  group(ContinueWithRecoveryUi, () {
     // Action will always be `show_recovery_ui` show_recovery_ui ContinueWithActionShowRecoveryUIString
     // String action
     test('to test the property `action`', () async {
@@ -15,12 +15,6 @@ void main() {
 
     // ContinueWithRecoveryUiFlow flow
     test('to test the property `flow`', () async {
-      // TODO
-    });
-
-    // Token is the token of the session
-    // String orySessionToken
-    test('to test the property `orySessionToken`', () async {
       // TODO
     });
 
