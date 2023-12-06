@@ -6,63 +6,89 @@
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'create_project_body.g.dart';
+part 'workspace.g.dart';
 
-/// Create Project Request Body
+/// Workspace
 ///
 /// Properties:
-/// * [name] - The name of the project to be created
-/// * [workspaceId] 
+/// * [createdAt] 
+/// * [id] 
+/// * [name] 
+/// * [subscriptionId] 
+/// * [updatedAt] 
 @BuiltValue()
-abstract class CreateProjectBody implements Built<CreateProjectBody, CreateProjectBodyBuilder> {
-  /// The name of the project to be created
+abstract class Workspace implements Built<Workspace, WorkspaceBuilder> {
+  @BuiltValueField(wireName: r'created_at')
+  DateTime get createdAt;
+
+  @BuiltValueField(wireName: r'id')
+  String get id;
+
   @BuiltValueField(wireName: r'name')
   String get name;
 
-  @BuiltValueField(wireName: r'workspace_id')
-  String? get workspaceId;
+  @BuiltValueField(wireName: r'subscription_id')
+  String? get subscriptionId;
 
-  CreateProjectBody._();
+  @BuiltValueField(wireName: r'updated_at')
+  DateTime get updatedAt;
 
-  factory CreateProjectBody([void updates(CreateProjectBodyBuilder b)]) = _$CreateProjectBody;
+  Workspace._();
+
+  factory Workspace([void updates(WorkspaceBuilder b)]) = _$Workspace;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(CreateProjectBodyBuilder b) => b;
+  static void _defaults(WorkspaceBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<CreateProjectBody> get serializer => _$CreateProjectBodySerializer();
+  static Serializer<Workspace> get serializer => _$WorkspaceSerializer();
 }
 
-class _$CreateProjectBodySerializer implements PrimitiveSerializer<CreateProjectBody> {
+class _$WorkspaceSerializer implements PrimitiveSerializer<Workspace> {
   @override
-  final Iterable<Type> types = const [CreateProjectBody, _$CreateProjectBody];
+  final Iterable<Type> types = const [Workspace, _$Workspace];
 
   @override
-  final String wireName = r'CreateProjectBody';
+  final String wireName = r'Workspace';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    CreateProjectBody object, {
+    Workspace object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
+    yield r'created_at';
+    yield serializers.serialize(
+      object.createdAt,
+      specifiedType: const FullType(DateTime),
+    );
+    yield r'id';
+    yield serializers.serialize(
+      object.id,
+      specifiedType: const FullType(String),
+    );
     yield r'name';
     yield serializers.serialize(
       object.name,
       specifiedType: const FullType(String),
     );
-    if (object.workspaceId != null) {
-      yield r'workspace_id';
+    if (object.subscriptionId != null) {
+      yield r'subscription_id';
       yield serializers.serialize(
-        object.workspaceId,
+        object.subscriptionId,
         specifiedType: const FullType.nullable(String),
       );
     }
+    yield r'updated_at';
+    yield serializers.serialize(
+      object.updatedAt,
+      specifiedType: const FullType(DateTime),
+    );
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    CreateProjectBody object, {
+    Workspace object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -73,13 +99,27 @@ class _$CreateProjectBodySerializer implements PrimitiveSerializer<CreateProject
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required CreateProjectBodyBuilder result,
+    required WorkspaceBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
+        case r'created_at':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(DateTime),
+          ) as DateTime;
+          result.createdAt = valueDes;
+          break;
+        case r'id':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.id = valueDes;
+          break;
         case r'name':
           final valueDes = serializers.deserialize(
             value,
@@ -87,13 +127,20 @@ class _$CreateProjectBodySerializer implements PrimitiveSerializer<CreateProject
           ) as String;
           result.name = valueDes;
           break;
-        case r'workspace_id':
+        case r'subscription_id':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType.nullable(String),
           ) as String?;
           if (valueDes == null) continue;
-          result.workspaceId = valueDes;
+          result.subscriptionId = valueDes;
+          break;
+        case r'updated_at':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(DateTime),
+          ) as DateTime;
+          result.updatedAt = valueDes;
           break;
         default:
           unhandled.add(key);
@@ -104,12 +151,12 @@ class _$CreateProjectBodySerializer implements PrimitiveSerializer<CreateProject
   }
 
   @override
-  CreateProjectBody deserialize(
+  Workspace deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = CreateProjectBodyBuilder();
+    final result = WorkspaceBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
