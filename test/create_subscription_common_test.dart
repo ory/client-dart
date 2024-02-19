@@ -1,12 +1,12 @@
 import 'package:test/test.dart';
 import 'package:ory_client/ory_client.dart';
 
-// tests for CreateSubscriptionBody
+// tests for CreateSubscriptionCommon
 void main() {
-  final instance = CreateSubscriptionBodyBuilder();
+  final instance = CreateSubscriptionCommonBuilder();
   // TODO add properties to the builder and call build()
 
-  group(CreateSubscriptionBody, () {
+  group(CreateSubscriptionCommon, () {
     //  usd USD eur Euro
     // String currency
     test('to test the property `currency`', () async {
@@ -21,11 +21,6 @@ void main() {
 
     // String plan
     test('to test the property `plan`', () async {
-      // TODO
-    });
-
-    // String provisionFirstProject
-    test('to test the property `provisionFirstProject`', () async {
       // TODO
     });
 

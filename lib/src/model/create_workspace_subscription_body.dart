@@ -7,80 +7,71 @@ import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'create_subscription_body.g.dart';
+part 'create_workspace_subscription_body.g.dart';
 
-/// CreateSubscriptionBody
+/// CreateWorkspaceSubscriptionBody
 ///
 /// Properties:
 /// * [currency] -  usd USD eur Euro
 /// * [interval] -  monthly Monthly yearly Yearly
 /// * [plan] 
-/// * [provisionFirstProject] 
 /// * [returnTo] 
 @BuiltValue()
-abstract class CreateSubscriptionBody implements Built<CreateSubscriptionBody, CreateSubscriptionBodyBuilder> {
+abstract class CreateWorkspaceSubscriptionBody implements Built<CreateWorkspaceSubscriptionBody, CreateWorkspaceSubscriptionBodyBuilder> {
   ///  usd USD eur Euro
   @BuiltValueField(wireName: r'currency')
-  CreateSubscriptionBodyCurrencyEnum? get currency;
+  CreateWorkspaceSubscriptionBodyCurrencyEnum? get currency;
   // enum currencyEnum {  usd,  eur,  };
 
   ///  monthly Monthly yearly Yearly
   @BuiltValueField(wireName: r'interval')
-  CreateSubscriptionBodyIntervalEnum get interval;
+  CreateWorkspaceSubscriptionBodyIntervalEnum get interval;
   // enum intervalEnum {  monthly,  yearly,  };
 
   @BuiltValueField(wireName: r'plan')
   String get plan;
 
-  @BuiltValueField(wireName: r'provision_first_project')
-  String get provisionFirstProject;
-
   @BuiltValueField(wireName: r'return_to')
   String? get returnTo;
 
-  CreateSubscriptionBody._();
+  CreateWorkspaceSubscriptionBody._();
 
-  factory CreateSubscriptionBody([void updates(CreateSubscriptionBodyBuilder b)]) = _$CreateSubscriptionBody;
+  factory CreateWorkspaceSubscriptionBody([void updates(CreateWorkspaceSubscriptionBodyBuilder b)]) = _$CreateWorkspaceSubscriptionBody;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(CreateSubscriptionBodyBuilder b) => b;
+  static void _defaults(CreateWorkspaceSubscriptionBodyBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<CreateSubscriptionBody> get serializer => _$CreateSubscriptionBodySerializer();
+  static Serializer<CreateWorkspaceSubscriptionBody> get serializer => _$CreateWorkspaceSubscriptionBodySerializer();
 }
 
-class _$CreateSubscriptionBodySerializer implements PrimitiveSerializer<CreateSubscriptionBody> {
+class _$CreateWorkspaceSubscriptionBodySerializer implements PrimitiveSerializer<CreateWorkspaceSubscriptionBody> {
   @override
-  final Iterable<Type> types = const [CreateSubscriptionBody, _$CreateSubscriptionBody];
+  final Iterable<Type> types = const [CreateWorkspaceSubscriptionBody, _$CreateWorkspaceSubscriptionBody];
 
   @override
-  final String wireName = r'CreateSubscriptionBody';
+  final String wireName = r'CreateWorkspaceSubscriptionBody';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    CreateSubscriptionBody object, {
+    CreateWorkspaceSubscriptionBody object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
     if (object.currency != null) {
       yield r'currency';
       yield serializers.serialize(
         object.currency,
-        specifiedType: const FullType(CreateSubscriptionBodyCurrencyEnum),
+        specifiedType: const FullType(CreateWorkspaceSubscriptionBodyCurrencyEnum),
       );
     }
     yield r'interval';
     yield serializers.serialize(
       object.interval,
-      specifiedType: const FullType(CreateSubscriptionBodyIntervalEnum),
+      specifiedType: const FullType(CreateWorkspaceSubscriptionBodyIntervalEnum),
     );
     yield r'plan';
     yield serializers.serialize(
       object.plan,
-      specifiedType: const FullType(String),
-    );
-    yield r'provision_first_project';
-    yield serializers.serialize(
-      object.provisionFirstProject,
       specifiedType: const FullType(String),
     );
     if (object.returnTo != null) {
@@ -95,7 +86,7 @@ class _$CreateSubscriptionBodySerializer implements PrimitiveSerializer<CreateSu
   @override
   Object serialize(
     Serializers serializers,
-    CreateSubscriptionBody object, {
+    CreateWorkspaceSubscriptionBody object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -106,7 +97,7 @@ class _$CreateSubscriptionBodySerializer implements PrimitiveSerializer<CreateSu
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required CreateSubscriptionBodyBuilder result,
+    required CreateWorkspaceSubscriptionBodyBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
@@ -116,15 +107,15 @@ class _$CreateSubscriptionBodySerializer implements PrimitiveSerializer<CreateSu
         case r'currency':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(CreateSubscriptionBodyCurrencyEnum),
-          ) as CreateSubscriptionBodyCurrencyEnum;
+            specifiedType: const FullType(CreateWorkspaceSubscriptionBodyCurrencyEnum),
+          ) as CreateWorkspaceSubscriptionBodyCurrencyEnum;
           result.currency = valueDes;
           break;
         case r'interval':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(CreateSubscriptionBodyIntervalEnum),
-          ) as CreateSubscriptionBodyIntervalEnum;
+            specifiedType: const FullType(CreateWorkspaceSubscriptionBodyIntervalEnum),
+          ) as CreateWorkspaceSubscriptionBodyIntervalEnum;
           result.interval = valueDes;
           break;
         case r'plan':
@@ -133,13 +124,6 @@ class _$CreateSubscriptionBodySerializer implements PrimitiveSerializer<CreateSu
             specifiedType: const FullType(String),
           ) as String;
           result.plan = valueDes;
-          break;
-        case r'provision_first_project':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.provisionFirstProject = valueDes;
           break;
         case r'return_to':
           final valueDes = serializers.deserialize(
@@ -157,12 +141,12 @@ class _$CreateSubscriptionBodySerializer implements PrimitiveSerializer<CreateSu
   }
 
   @override
-  CreateSubscriptionBody deserialize(
+  CreateWorkspaceSubscriptionBody deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = CreateSubscriptionBodyBuilder();
+    final result = CreateWorkspaceSubscriptionBodyBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -177,37 +161,37 @@ class _$CreateSubscriptionBodySerializer implements PrimitiveSerializer<CreateSu
   }
 }
 
-class CreateSubscriptionBodyCurrencyEnum extends EnumClass {
+class CreateWorkspaceSubscriptionBodyCurrencyEnum extends EnumClass {
 
   ///  usd USD eur Euro
   @BuiltValueEnumConst(wireName: r'usd')
-  static const CreateSubscriptionBodyCurrencyEnum usd = _$createSubscriptionBodyCurrencyEnum_usd;
+  static const CreateWorkspaceSubscriptionBodyCurrencyEnum usd = _$createWorkspaceSubscriptionBodyCurrencyEnum_usd;
   ///  usd USD eur Euro
   @BuiltValueEnumConst(wireName: r'eur')
-  static const CreateSubscriptionBodyCurrencyEnum eur = _$createSubscriptionBodyCurrencyEnum_eur;
+  static const CreateWorkspaceSubscriptionBodyCurrencyEnum eur = _$createWorkspaceSubscriptionBodyCurrencyEnum_eur;
 
-  static Serializer<CreateSubscriptionBodyCurrencyEnum> get serializer => _$createSubscriptionBodyCurrencyEnumSerializer;
+  static Serializer<CreateWorkspaceSubscriptionBodyCurrencyEnum> get serializer => _$createWorkspaceSubscriptionBodyCurrencyEnumSerializer;
 
-  const CreateSubscriptionBodyCurrencyEnum._(String name): super(name);
+  const CreateWorkspaceSubscriptionBodyCurrencyEnum._(String name): super(name);
 
-  static BuiltSet<CreateSubscriptionBodyCurrencyEnum> get values => _$createSubscriptionBodyCurrencyEnumValues;
-  static CreateSubscriptionBodyCurrencyEnum valueOf(String name) => _$createSubscriptionBodyCurrencyEnumValueOf(name);
+  static BuiltSet<CreateWorkspaceSubscriptionBodyCurrencyEnum> get values => _$createWorkspaceSubscriptionBodyCurrencyEnumValues;
+  static CreateWorkspaceSubscriptionBodyCurrencyEnum valueOf(String name) => _$createWorkspaceSubscriptionBodyCurrencyEnumValueOf(name);
 }
 
-class CreateSubscriptionBodyIntervalEnum extends EnumClass {
+class CreateWorkspaceSubscriptionBodyIntervalEnum extends EnumClass {
 
   ///  monthly Monthly yearly Yearly
   @BuiltValueEnumConst(wireName: r'monthly')
-  static const CreateSubscriptionBodyIntervalEnum monthly = _$createSubscriptionBodyIntervalEnum_monthly;
+  static const CreateWorkspaceSubscriptionBodyIntervalEnum monthly = _$createWorkspaceSubscriptionBodyIntervalEnum_monthly;
   ///  monthly Monthly yearly Yearly
   @BuiltValueEnumConst(wireName: r'yearly')
-  static const CreateSubscriptionBodyIntervalEnum yearly = _$createSubscriptionBodyIntervalEnum_yearly;
+  static const CreateWorkspaceSubscriptionBodyIntervalEnum yearly = _$createWorkspaceSubscriptionBodyIntervalEnum_yearly;
 
-  static Serializer<CreateSubscriptionBodyIntervalEnum> get serializer => _$createSubscriptionBodyIntervalEnumSerializer;
+  static Serializer<CreateWorkspaceSubscriptionBodyIntervalEnum> get serializer => _$createWorkspaceSubscriptionBodyIntervalEnumSerializer;
 
-  const CreateSubscriptionBodyIntervalEnum._(String name): super(name);
+  const CreateWorkspaceSubscriptionBodyIntervalEnum._(String name): super(name);
 
-  static BuiltSet<CreateSubscriptionBodyIntervalEnum> get values => _$createSubscriptionBodyIntervalEnumValues;
-  static CreateSubscriptionBodyIntervalEnum valueOf(String name) => _$createSubscriptionBodyIntervalEnumValueOf(name);
+  static BuiltSet<CreateWorkspaceSubscriptionBodyIntervalEnum> get values => _$createWorkspaceSubscriptionBodyIntervalEnumValues;
+  static CreateWorkspaceSubscriptionBodyIntervalEnum valueOf(String name) => _$createWorkspaceSubscriptionBodyIntervalEnumValueOf(name);
 }
 
