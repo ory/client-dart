@@ -264,6 +264,7 @@ export 'package:ory_client/src/model/update_login_flow_with_lookup_secret_method
 export 'package:ory_client/src/model/update_login_flow_with_oidc_method.dart';
 export 'package:ory_client/src/model/update_login_flow_with_passkey_method.dart';
 export 'package:ory_client/src/model/update_login_flow_with_password_method.dart';
+export 'package:ory_client/src/model/update_login_flow_with_saml_method.dart';
 export 'package:ory_client/src/model/update_login_flow_with_totp_method.dart';
 export 'package:ory_client/src/model/update_login_flow_with_web_authn_method.dart';
 export 'package:ory_client/src/model/update_recovery_flow_body.dart';
@@ -275,6 +276,7 @@ export 'package:ory_client/src/model/update_registration_flow_with_oidc_method.d
 export 'package:ory_client/src/model/update_registration_flow_with_passkey_method.dart';
 export 'package:ory_client/src/model/update_registration_flow_with_password_method.dart';
 export 'package:ory_client/src/model/update_registration_flow_with_profile_method.dart';
+export 'package:ory_client/src/model/update_registration_flow_with_saml_method.dart';
 export 'package:ory_client/src/model/update_registration_flow_with_web_authn_method.dart';
 export 'package:ory_client/src/model/update_settings_flow_body.dart';
 export 'package:ory_client/src/model/update_settings_flow_with_lookup_method.dart';
@@ -282,6 +284,7 @@ export 'package:ory_client/src/model/update_settings_flow_with_oidc_method.dart'
 export 'package:ory_client/src/model/update_settings_flow_with_passkey_method.dart';
 export 'package:ory_client/src/model/update_settings_flow_with_password_method.dart';
 export 'package:ory_client/src/model/update_settings_flow_with_profile_method.dart';
+export 'package:ory_client/src/model/update_settings_flow_with_saml_method.dart';
 export 'package:ory_client/src/model/update_settings_flow_with_totp_method.dart';
 export 'package:ory_client/src/model/update_settings_flow_with_web_authn_method.dart';
 export 'package:ory_client/src/model/update_subscription_body.dart';
