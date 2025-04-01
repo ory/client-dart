@@ -3,51 +3,51 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:ory_client/src/model/identity_with_credentials_saml_config_provider.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:ory_client/src/model/identity_with_credentials_oidc_config_provider.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'identity_with_credentials_oidc_config.g.dart';
+part 'identity_with_credentials_saml_config.g.dart';
 
-/// IdentityWithCredentialsOidcConfig
+/// Payload of SAML providers
 ///
 /// Properties:
-/// * [providers] - A list of OpenID Connect Providers
+/// * [providers] - A list of SAML Providers
 @BuiltValue()
-abstract class IdentityWithCredentialsOidcConfig implements Built<IdentityWithCredentialsOidcConfig, IdentityWithCredentialsOidcConfigBuilder> {
-  /// A list of OpenID Connect Providers
+abstract class IdentityWithCredentialsSamlConfig implements Built<IdentityWithCredentialsSamlConfig, IdentityWithCredentialsSamlConfigBuilder> {
+  /// A list of SAML Providers
   @BuiltValueField(wireName: r'providers')
-  BuiltList<IdentityWithCredentialsOidcConfigProvider>? get providers;
+  BuiltList<IdentityWithCredentialsSamlConfigProvider>? get providers;
 
-  IdentityWithCredentialsOidcConfig._();
+  IdentityWithCredentialsSamlConfig._();
 
-  factory IdentityWithCredentialsOidcConfig([void updates(IdentityWithCredentialsOidcConfigBuilder b)]) = _$IdentityWithCredentialsOidcConfig;
+  factory IdentityWithCredentialsSamlConfig([void updates(IdentityWithCredentialsSamlConfigBuilder b)]) = _$IdentityWithCredentialsSamlConfig;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(IdentityWithCredentialsOidcConfigBuilder b) => b;
+  static void _defaults(IdentityWithCredentialsSamlConfigBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<IdentityWithCredentialsOidcConfig> get serializer => _$IdentityWithCredentialsOidcConfigSerializer();
+  static Serializer<IdentityWithCredentialsSamlConfig> get serializer => _$IdentityWithCredentialsSamlConfigSerializer();
 }
 
-class _$IdentityWithCredentialsOidcConfigSerializer implements PrimitiveSerializer<IdentityWithCredentialsOidcConfig> {
+class _$IdentityWithCredentialsSamlConfigSerializer implements PrimitiveSerializer<IdentityWithCredentialsSamlConfig> {
   @override
-  final Iterable<Type> types = const [IdentityWithCredentialsOidcConfig, _$IdentityWithCredentialsOidcConfig];
+  final Iterable<Type> types = const [IdentityWithCredentialsSamlConfig, _$IdentityWithCredentialsSamlConfig];
 
   @override
-  final String wireName = r'IdentityWithCredentialsOidcConfig';
+  final String wireName = r'IdentityWithCredentialsSamlConfig';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    IdentityWithCredentialsOidcConfig object, {
+    IdentityWithCredentialsSamlConfig object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
     if (object.providers != null) {
       yield r'providers';
       yield serializers.serialize(
         object.providers,
-        specifiedType: const FullType(BuiltList, [FullType(IdentityWithCredentialsOidcConfigProvider)]),
+        specifiedType: const FullType(BuiltList, [FullType(IdentityWithCredentialsSamlConfigProvider)]),
       );
     }
   }
@@ -55,7 +55,7 @@ class _$IdentityWithCredentialsOidcConfigSerializer implements PrimitiveSerializ
   @override
   Object serialize(
     Serializers serializers,
-    IdentityWithCredentialsOidcConfig object, {
+    IdentityWithCredentialsSamlConfig object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -66,7 +66,7 @@ class _$IdentityWithCredentialsOidcConfigSerializer implements PrimitiveSerializ
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required IdentityWithCredentialsOidcConfigBuilder result,
+    required IdentityWithCredentialsSamlConfigBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
@@ -76,8 +76,8 @@ class _$IdentityWithCredentialsOidcConfigSerializer implements PrimitiveSerializ
         case r'providers':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(IdentityWithCredentialsOidcConfigProvider)]),
-          ) as BuiltList<IdentityWithCredentialsOidcConfigProvider>;
+            specifiedType: const FullType(BuiltList, [FullType(IdentityWithCredentialsSamlConfigProvider)]),
+          ) as BuiltList<IdentityWithCredentialsSamlConfigProvider>;
           result.providers.replace(valueDes);
           break;
         default:
@@ -89,12 +89,12 @@ class _$IdentityWithCredentialsOidcConfigSerializer implements PrimitiveSerializ
   }
 
   @override
-  IdentityWithCredentialsOidcConfig deserialize(
+  IdentityWithCredentialsSamlConfig deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = IdentityWithCredentialsOidcConfigBuilder();
+    final result = IdentityWithCredentialsSamlConfigBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

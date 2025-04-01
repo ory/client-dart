@@ -6,53 +6,48 @@
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'identity_with_credentials_oidc_config_provider.g.dart';
+part 'identity_with_credentials_saml_config_provider.g.dart';
 
-/// Create Identity and Import Social Sign In Credentials Configuration
+/// Payload of specific SAML provider
 ///
 /// Properties:
 /// * [organization] 
-/// * [provider] - The OpenID Connect provider to link the subject to. Usually something like `google` or `github`.
-/// * [subject] - The subject (`sub`) of the OpenID Connect connection. Usually the `sub` field of the ID Token.
-/// * [useAutoLink] - If set, this credential allows the user to sign in using the OpenID Connect provider without setting the subject first.
+/// * [provider] - The SAML provider to link the subject to.
+/// * [subject] - The unique subject of the SAML connection. This value must be immutable at the source.
 @BuiltValue()
-abstract class IdentityWithCredentialsOidcConfigProvider implements Built<IdentityWithCredentialsOidcConfigProvider, IdentityWithCredentialsOidcConfigProviderBuilder> {
+abstract class IdentityWithCredentialsSamlConfigProvider implements Built<IdentityWithCredentialsSamlConfigProvider, IdentityWithCredentialsSamlConfigProviderBuilder> {
   @BuiltValueField(wireName: r'organization')
   String? get organization;
 
-  /// The OpenID Connect provider to link the subject to. Usually something like `google` or `github`.
+  /// The SAML provider to link the subject to.
   @BuiltValueField(wireName: r'provider')
   String get provider;
 
-  /// The subject (`sub`) of the OpenID Connect connection. Usually the `sub` field of the ID Token.
+  /// The unique subject of the SAML connection. This value must be immutable at the source.
   @BuiltValueField(wireName: r'subject')
   String get subject;
 
-  /// If set, this credential allows the user to sign in using the OpenID Connect provider without setting the subject first.
-  @BuiltValueField(wireName: r'use_auto_link')
-  bool? get useAutoLink;
+  IdentityWithCredentialsSamlConfigProvider._();
 
-  IdentityWithCredentialsOidcConfigProvider._();
-
-  factory IdentityWithCredentialsOidcConfigProvider([void updates(IdentityWithCredentialsOidcConfigProviderBuilder b)]) = _$IdentityWithCredentialsOidcConfigProvider;
+  factory IdentityWithCredentialsSamlConfigProvider([void updates(IdentityWithCredentialsSamlConfigProviderBuilder b)]) = _$IdentityWithCredentialsSamlConfigProvider;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(IdentityWithCredentialsOidcConfigProviderBuilder b) => b;
+  static void _defaults(IdentityWithCredentialsSamlConfigProviderBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<IdentityWithCredentialsOidcConfigProvider> get serializer => _$IdentityWithCredentialsOidcConfigProviderSerializer();
+  static Serializer<IdentityWithCredentialsSamlConfigProvider> get serializer => _$IdentityWithCredentialsSamlConfigProviderSerializer();
 }
 
-class _$IdentityWithCredentialsOidcConfigProviderSerializer implements PrimitiveSerializer<IdentityWithCredentialsOidcConfigProvider> {
+class _$IdentityWithCredentialsSamlConfigProviderSerializer implements PrimitiveSerializer<IdentityWithCredentialsSamlConfigProvider> {
   @override
-  final Iterable<Type> types = const [IdentityWithCredentialsOidcConfigProvider, _$IdentityWithCredentialsOidcConfigProvider];
+  final Iterable<Type> types = const [IdentityWithCredentialsSamlConfigProvider, _$IdentityWithCredentialsSamlConfigProvider];
 
   @override
-  final String wireName = r'IdentityWithCredentialsOidcConfigProvider';
+  final String wireName = r'IdentityWithCredentialsSamlConfigProvider';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    IdentityWithCredentialsOidcConfigProvider object, {
+    IdentityWithCredentialsSamlConfigProvider object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
     if (object.organization != null) {
@@ -72,19 +67,12 @@ class _$IdentityWithCredentialsOidcConfigProviderSerializer implements Primitive
       object.subject,
       specifiedType: const FullType(String),
     );
-    if (object.useAutoLink != null) {
-      yield r'use_auto_link';
-      yield serializers.serialize(
-        object.useAutoLink,
-        specifiedType: const FullType(bool),
-      );
-    }
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    IdentityWithCredentialsOidcConfigProvider object, {
+    IdentityWithCredentialsSamlConfigProvider object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -95,7 +83,7 @@ class _$IdentityWithCredentialsOidcConfigProviderSerializer implements Primitive
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required IdentityWithCredentialsOidcConfigProviderBuilder result,
+    required IdentityWithCredentialsSamlConfigProviderBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
@@ -124,13 +112,6 @@ class _$IdentityWithCredentialsOidcConfigProviderSerializer implements Primitive
           ) as String;
           result.subject = valueDes;
           break;
-        case r'use_auto_link':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.useAutoLink = valueDes;
-          break;
         default:
           unhandled.add(key);
           unhandled.add(value);
@@ -140,12 +121,12 @@ class _$IdentityWithCredentialsOidcConfigProviderSerializer implements Primitive
   }
 
   @override
-  IdentityWithCredentialsOidcConfigProvider deserialize(
+  IdentityWithCredentialsSamlConfigProvider deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = IdentityWithCredentialsOidcConfigProviderBuilder();
+    final result = IdentityWithCredentialsSamlConfigProviderBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
