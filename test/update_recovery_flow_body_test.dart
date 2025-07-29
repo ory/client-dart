@@ -55,7 +55,7 @@ void main() {
       // TODO
     });
 
-    // Go back in the flow, meaningfully. The actual value is not important (it is typically \"previous\"), the system checks whether the value is empty or not. Used in RecoveryV2.
+    // Set to \"previous\" to return to the previous screen. Used in RecoveryV2.
     // String screen
     test('to test the property `screen`', () async {
       // TODO
