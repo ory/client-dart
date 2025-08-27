@@ -11,10 +11,15 @@ part 'create_organization_onboarding_portal_link_body.g.dart';
 /// CreateOrganizationOnboardingPortalLinkBody
 ///
 /// Properties:
+/// * [enableScim] - Feature flag to enable SCIM configuration
 /// * [enableSso] - Feature flag to enable SSO configuration
 /// * [expiresAt] 
 @BuiltValue()
 abstract class CreateOrganizationOnboardingPortalLinkBody implements Built<CreateOrganizationOnboardingPortalLinkBody, CreateOrganizationOnboardingPortalLinkBodyBuilder> {
+  /// Feature flag to enable SCIM configuration
+  @BuiltValueField(wireName: r'enable_scim')
+  bool get enableScim;
+
   /// Feature flag to enable SSO configuration
   @BuiltValueField(wireName: r'enable_sso')
   bool get enableSso;
@@ -45,6 +50,11 @@ class _$CreateOrganizationOnboardingPortalLinkBodySerializer implements Primitiv
     CreateOrganizationOnboardingPortalLinkBody object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
+    yield r'enable_scim';
+    yield serializers.serialize(
+      object.enableScim,
+      specifiedType: const FullType(bool),
+    );
     yield r'enable_sso';
     yield serializers.serialize(
       object.enableSso,
@@ -80,6 +90,13 @@ class _$CreateOrganizationOnboardingPortalLinkBodySerializer implements Primitiv
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
+        case r'enable_scim':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.enableScim = valueDes;
+          break;
         case r'enable_sso':
           final valueDes = serializers.deserialize(
             value,

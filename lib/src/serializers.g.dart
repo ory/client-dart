@@ -14,7 +14,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(AccountExperienceColors.serializer)
       ..add(AccountExperienceConfiguration.serializer)
       ..add(AccountExperienceConfigurationLocaleBehaviorEnum.serializer)
-      ..add(AccountExperienceThemeVariables.serializer)
       ..add(ActiveProjectInConsole.serializer)
       ..add(AddProjectToWorkspaceBody.serializer)
       ..add(AddProjectToWorkspaceBodyEnvironmentEnum.serializer)
@@ -223,7 +222,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(OAuth2ConsentRequest.serializer)
       ..add(OAuth2ConsentRequestOpenIDConnectContext.serializer)
       ..add(OAuth2ConsentSession.serializer)
-      ..add(OAuth2ConsentSessionExpiresAt.serializer)
       ..add(OAuth2LoginRequest.serializer)
       ..add(OAuth2LogoutRequest.serializer)
       ..add(OAuth2RedirectTo.serializer)
@@ -258,6 +256,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(ProjectMetadataEnvironmentEnum.serializer)
       ..add(ProjectMetadataHomeRegionEnum.serializer)
       ..add(ProjectMetadataStateEnum.serializer)
+      ..add(ProjectServiceAccountExperience.serializer)
       ..add(ProjectServiceIdentity.serializer)
       ..add(ProjectServiceOAuth2.serializer)
       ..add(ProjectServicePermission.serializer)
@@ -399,10 +398,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(Workspace.serializer)
       ..add(WorkspaceApiKey.serializer)
       ..addBuilderFactory(
-          const FullType(BuiltList,
-              const [const FullType(AccountExperienceThemeVariables)]),
-          () => new ListBuilder<AccountExperienceThemeVariables>())
-      ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Attribute)]),
           () => new ListBuilder<Attribute>())
       ..addBuilderFactory(
@@ -504,6 +499,10 @@ Serializers _$serializers = (new Serializers().toBuilder()
               const [const FullType(NormalizedProjectRevisionSAMLProvider)]),
           () => new ListBuilder<NormalizedProjectRevisionSAMLProvider>())
       ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(NormalizedProjectRevisionScimClient)]),
+          () => new ListBuilder<NormalizedProjectRevisionScimClient>())
+      ..addBuilderFactory(
           const FullType(BuiltList, const [
             const FullType(NormalizedProjectRevisionThirdPartyProvider)
           ]),
@@ -512,6 +511,10 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList,
               const [const FullType(NormalizedProjectRevisionSAMLProvider)]),
           () => new ListBuilder<NormalizedProjectRevisionSAMLProvider>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(NormalizedProjectRevisionScimClient)]),
+          () => new ListBuilder<NormalizedProjectRevisionScimClient>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(OnboardingPortalLink)]),

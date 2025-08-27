@@ -13,6 +13,12 @@ void main() {
       // TODO
     });
 
+    // Feature flag to enable SCIM configuration
+    // bool enableScim
+    test('to test the property `enableScim`', () async {
+      // TODO
+    });
+
     // Feature flag to enable SSO configuration
     // bool enableSso
     test('to test the property `enableSso`', () async {
