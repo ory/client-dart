@@ -216,6 +216,8 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(NormalizedProjectRevisionThirdPartyProviderPkceEnum.serializer)
       ..add(NormalizedProjectRevisionThirdPartyProviderStateEnum.serializer)
       ..add(NormalizedProjectRevisionTokenizerTemplate.serializer)
+      ..add(NormalizedProjectRevisionTokenizerTemplateSubjectSourceEnum
+          .serializer)
       ..add(NormalizedProjectStateEnum.serializer)
       ..add(OAuth2Client.serializer)
       ..add(OAuth2ClientTokenLifespans.serializer)
@@ -796,6 +798,9 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())
       ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
           const FullType(BuiltList, const [
             const FullType(NormalizedProjectRevisionThirdPartyProvider)
           ]),
@@ -873,6 +878,9 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList,
               const [const FullType(NormalizedProjectRevisionIdentitySchema)]),
           () => new ListBuilder<NormalizedProjectRevisionIdentitySchema>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())
