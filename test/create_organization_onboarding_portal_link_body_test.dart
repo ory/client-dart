@@ -7,6 +7,11 @@ void main() {
   // TODO add properties to the builder and call build()
 
   group(CreateOrganizationOnboardingPortalLinkBody, () {
+    // String customHostnameId
+    test('to test the property `customHostnameId`', () async {
+      // TODO
+    });
+
     // Feature flag to enable SCIM configuration
     // bool enableScim
     test('to test the property `enableScim`', () async {

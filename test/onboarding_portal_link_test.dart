@@ -13,6 +13,11 @@ void main() {
       // TODO
     });
 
+    // String customHostnameId
+    test('to test the property `customHostnameId`', () async {
+      // TODO
+    });
+
     // Feature flag to enable SCIM configuration
     // bool enableScim
     test('to test the property `enableScim`', () async {
