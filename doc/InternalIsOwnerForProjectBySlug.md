@@ -1,4 +1,4 @@
-# ory_client.model.InternalIsOwnerForProjectBySlugResponse
+# ory_client.model.InternalIsOwnerForProjectBySlug
 
 ## Load the model package
 ```dart

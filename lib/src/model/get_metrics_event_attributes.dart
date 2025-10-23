@@ -4,56 +4,55 @@
 
 // ignore_for_file: unused_element
 import 'package:built_collection/built_collection.dart';
-import 'package:ory_client/src/model/attributes_count_datapoint.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'get_attributes_count_response.g.dart';
+part 'get_metrics_event_attributes.g.dart';
 
-/// Response of the getAttributesCount endpoint
+/// Response of the getMetricsEventAttributes endpoint
 ///
 /// Properties:
-/// * [data] - The list of data points.
+/// * [events] - The list of data points.
 @BuiltValue()
-abstract class GetAttributesCountResponse implements Built<GetAttributesCountResponse, GetAttributesCountResponseBuilder> {
+abstract class GetMetricsEventAttributes implements Built<GetMetricsEventAttributes, GetMetricsEventAttributesBuilder> {
   /// The list of data points.
-  @BuiltValueField(wireName: r'data')
-  BuiltList<AttributesCountDatapoint> get data;
+  @BuiltValueField(wireName: r'events')
+  BuiltList<String> get events;
 
-  GetAttributesCountResponse._();
+  GetMetricsEventAttributes._();
 
-  factory GetAttributesCountResponse([void updates(GetAttributesCountResponseBuilder b)]) = _$GetAttributesCountResponse;
+  factory GetMetricsEventAttributes([void updates(GetMetricsEventAttributesBuilder b)]) = _$GetMetricsEventAttributes;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(GetAttributesCountResponseBuilder b) => b;
+  static void _defaults(GetMetricsEventAttributesBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<GetAttributesCountResponse> get serializer => _$GetAttributesCountResponseSerializer();
+  static Serializer<GetMetricsEventAttributes> get serializer => _$GetMetricsEventAttributesSerializer();
 }
 
-class _$GetAttributesCountResponseSerializer implements PrimitiveSerializer<GetAttributesCountResponse> {
+class _$GetMetricsEventAttributesSerializer implements PrimitiveSerializer<GetMetricsEventAttributes> {
   @override
-  final Iterable<Type> types = const [GetAttributesCountResponse, _$GetAttributesCountResponse];
+  final Iterable<Type> types = const [GetMetricsEventAttributes, _$GetMetricsEventAttributes];
 
   @override
-  final String wireName = r'GetAttributesCountResponse';
+  final String wireName = r'GetMetricsEventAttributes';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    GetAttributesCountResponse object, {
+    GetMetricsEventAttributes object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'data';
+    yield r'events';
     yield serializers.serialize(
-      object.data,
-      specifiedType: const FullType(BuiltList, [FullType(AttributesCountDatapoint)]),
+      object.events,
+      specifiedType: const FullType(BuiltList, [FullType(String)]),
     );
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    GetAttributesCountResponse object, {
+    GetMetricsEventAttributes object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -64,19 +63,19 @@ class _$GetAttributesCountResponseSerializer implements PrimitiveSerializer<GetA
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required GetAttributesCountResponseBuilder result,
+    required GetMetricsEventAttributesBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'data':
+        case r'events':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(AttributesCountDatapoint)]),
-          ) as BuiltList<AttributesCountDatapoint>;
-          result.data.replace(valueDes);
+            specifiedType: const FullType(BuiltList, [FullType(String)]),
+          ) as BuiltList<String>;
+          result.events.replace(valueDes);
           break;
         default:
           unhandled.add(key);
@@ -87,12 +86,12 @@ class _$GetAttributesCountResponseSerializer implements PrimitiveSerializer<GetA
   }
 
   @override
-  GetAttributesCountResponse deserialize(
+  GetMetricsEventAttributes deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = GetAttributesCountResponseBuilder();
+    final result = GetMetricsEventAttributesBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

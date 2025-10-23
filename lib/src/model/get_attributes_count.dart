@@ -3,55 +3,57 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:built_collection/built_collection.dart';
+import 'package:ory_client/src/model/attributes_count_datapoint.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'internal_is_owner_for_project_by_slug_response.g.dart';
+part 'get_attributes_count.g.dart';
 
-/// InternalIsOwnerForProjectBySlugResponse
+/// Response of the getAttributesCount endpoint
 ///
 /// Properties:
-/// * [projectId] - ProjectID is the project's ID.
+/// * [data] - The list of data points.
 @BuiltValue()
-abstract class InternalIsOwnerForProjectBySlugResponse implements Built<InternalIsOwnerForProjectBySlugResponse, InternalIsOwnerForProjectBySlugResponseBuilder> {
-  /// ProjectID is the project's ID.
-  @BuiltValueField(wireName: r'project_id')
-  String get projectId;
+abstract class GetAttributesCount implements Built<GetAttributesCount, GetAttributesCountBuilder> {
+  /// The list of data points.
+  @BuiltValueField(wireName: r'data')
+  BuiltList<AttributesCountDatapoint> get data;
 
-  InternalIsOwnerForProjectBySlugResponse._();
+  GetAttributesCount._();
 
-  factory InternalIsOwnerForProjectBySlugResponse([void updates(InternalIsOwnerForProjectBySlugResponseBuilder b)]) = _$InternalIsOwnerForProjectBySlugResponse;
+  factory GetAttributesCount([void updates(GetAttributesCountBuilder b)]) = _$GetAttributesCount;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(InternalIsOwnerForProjectBySlugResponseBuilder b) => b;
+  static void _defaults(GetAttributesCountBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<InternalIsOwnerForProjectBySlugResponse> get serializer => _$InternalIsOwnerForProjectBySlugResponseSerializer();
+  static Serializer<GetAttributesCount> get serializer => _$GetAttributesCountSerializer();
 }
 
-class _$InternalIsOwnerForProjectBySlugResponseSerializer implements PrimitiveSerializer<InternalIsOwnerForProjectBySlugResponse> {
+class _$GetAttributesCountSerializer implements PrimitiveSerializer<GetAttributesCount> {
   @override
-  final Iterable<Type> types = const [InternalIsOwnerForProjectBySlugResponse, _$InternalIsOwnerForProjectBySlugResponse];
+  final Iterable<Type> types = const [GetAttributesCount, _$GetAttributesCount];
 
   @override
-  final String wireName = r'InternalIsOwnerForProjectBySlugResponse';
+  final String wireName = r'GetAttributesCount';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    InternalIsOwnerForProjectBySlugResponse object, {
+    GetAttributesCount object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'project_id';
+    yield r'data';
     yield serializers.serialize(
-      object.projectId,
-      specifiedType: const FullType(String),
+      object.data,
+      specifiedType: const FullType(BuiltList, [FullType(AttributesCountDatapoint)]),
     );
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    InternalIsOwnerForProjectBySlugResponse object, {
+    GetAttributesCount object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -62,19 +64,19 @@ class _$InternalIsOwnerForProjectBySlugResponseSerializer implements PrimitiveSe
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required InternalIsOwnerForProjectBySlugResponseBuilder result,
+    required GetAttributesCountBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'project_id':
+        case r'data':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.projectId = valueDes;
+            specifiedType: const FullType(BuiltList, [FullType(AttributesCountDatapoint)]),
+          ) as BuiltList<AttributesCountDatapoint>;
+          result.data.replace(valueDes);
           break;
         default:
           unhandled.add(key);
@@ -85,12 +87,12 @@ class _$InternalIsOwnerForProjectBySlugResponseSerializer implements PrimitiveSe
   }
 
   @override
-  InternalIsOwnerForProjectBySlugResponse deserialize(
+  GetAttributesCount deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = InternalIsOwnerForProjectBySlugResponseBuilder();
+    final result = GetAttributesCountBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

@@ -1,4 +1,4 @@
-# ory_client.model.GetMetricsEventTypesResponse
+# ory_client.model.GetMetricsEventTypes
 
 ## Load the model package
 ```dart

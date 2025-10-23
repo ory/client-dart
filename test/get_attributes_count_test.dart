@@ -1,12 +1,12 @@
 import 'package:test/test.dart';
 import 'package:ory_client/ory_client.dart';
 
-// tests for GetAttributesCountResponse
+// tests for GetAttributesCount
 void main() {
-  final instance = GetAttributesCountResponseBuilder();
+  final instance = GetAttributesCountBuilder();
   // TODO add properties to the builder and call build()
 
-  group(GetAttributesCountResponse, () {
+  group(GetAttributesCount, () {
     // The list of data points.
     // BuiltList<AttributesCountDatapoint> data
     test('to test the property `data`', () async {

@@ -1,12 +1,12 @@
 import 'package:test/test.dart';
 import 'package:ory_client/ory_client.dart';
 
-// tests for GetProjectEventsResponse
+// tests for GetProjectEvents
 void main() {
-  final instance = GetProjectEventsResponseBuilder();
+  final instance = GetProjectEventsBuilder();
   // TODO add properties to the builder and call build()
 
-  group(GetProjectEventsResponse, () {
+  group(GetProjectEvents, () {
     // The list of data points.
     // BuiltList<ProjectEventsDatapoint> events
     test('to test the property `events`', () async {

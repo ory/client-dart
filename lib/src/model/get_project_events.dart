@@ -3,56 +3,69 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:ory_client/src/model/project_events_datapoint.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'get_metrics_event_attributes_response.g.dart';
+part 'get_project_events.g.dart';
 
-/// Response of the getMetricsEventAttributes endpoint
+/// Response of the getProjectEvents endpoint
 ///
 /// Properties:
 /// * [events] - The list of data points.
+/// * [pageToken] - Pagination token to be included in next page request
 @BuiltValue()
-abstract class GetMetricsEventAttributesResponse implements Built<GetMetricsEventAttributesResponse, GetMetricsEventAttributesResponseBuilder> {
+abstract class GetProjectEvents implements Built<GetProjectEvents, GetProjectEventsBuilder> {
   /// The list of data points.
   @BuiltValueField(wireName: r'events')
-  BuiltList<String> get events;
+  BuiltList<ProjectEventsDatapoint> get events;
 
-  GetMetricsEventAttributesResponse._();
+  /// Pagination token to be included in next page request
+  @BuiltValueField(wireName: r'page_token')
+  String? get pageToken;
 
-  factory GetMetricsEventAttributesResponse([void updates(GetMetricsEventAttributesResponseBuilder b)]) = _$GetMetricsEventAttributesResponse;
+  GetProjectEvents._();
+
+  factory GetProjectEvents([void updates(GetProjectEventsBuilder b)]) = _$GetProjectEvents;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(GetMetricsEventAttributesResponseBuilder b) => b;
+  static void _defaults(GetProjectEventsBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<GetMetricsEventAttributesResponse> get serializer => _$GetMetricsEventAttributesResponseSerializer();
+  static Serializer<GetProjectEvents> get serializer => _$GetProjectEventsSerializer();
 }
 
-class _$GetMetricsEventAttributesResponseSerializer implements PrimitiveSerializer<GetMetricsEventAttributesResponse> {
+class _$GetProjectEventsSerializer implements PrimitiveSerializer<GetProjectEvents> {
   @override
-  final Iterable<Type> types = const [GetMetricsEventAttributesResponse, _$GetMetricsEventAttributesResponse];
+  final Iterable<Type> types = const [GetProjectEvents, _$GetProjectEvents];
 
   @override
-  final String wireName = r'GetMetricsEventAttributesResponse';
+  final String wireName = r'GetProjectEvents';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    GetMetricsEventAttributesResponse object, {
+    GetProjectEvents object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
     yield r'events';
     yield serializers.serialize(
       object.events,
-      specifiedType: const FullType(BuiltList, [FullType(String)]),
+      specifiedType: const FullType(BuiltList, [FullType(ProjectEventsDatapoint)]),
     );
+    if (object.pageToken != null) {
+      yield r'page_token';
+      yield serializers.serialize(
+        object.pageToken,
+        specifiedType: const FullType(String),
+      );
+    }
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    GetMetricsEventAttributesResponse object, {
+    GetProjectEvents object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -63,7 +76,7 @@ class _$GetMetricsEventAttributesResponseSerializer implements PrimitiveSerializ
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required GetMetricsEventAttributesResponseBuilder result,
+    required GetProjectEventsBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
@@ -73,9 +86,16 @@ class _$GetMetricsEventAttributesResponseSerializer implements PrimitiveSerializ
         case r'events':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(String)]),
-          ) as BuiltList<String>;
+            specifiedType: const FullType(BuiltList, [FullType(ProjectEventsDatapoint)]),
+          ) as BuiltList<ProjectEventsDatapoint>;
           result.events.replace(valueDes);
+          break;
+        case r'page_token':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.pageToken = valueDes;
           break;
         default:
           unhandled.add(key);
@@ -86,12 +106,12 @@ class _$GetMetricsEventAttributesResponseSerializer implements PrimitiveSerializ
   }
 
   @override
-  GetMetricsEventAttributesResponse deserialize(
+  GetProjectEvents deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = GetMetricsEventAttributesResponseBuilder();
+    final result = GetProjectEventsBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

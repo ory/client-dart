@@ -1,12 +1,12 @@
 import 'package:test/test.dart';
 import 'package:ory_client/ory_client.dart';
 
-// tests for GetSessionActivityResponse
+// tests for GetSessionActivity
 void main() {
-  final instance = GetSessionActivityResponseBuilder();
+  final instance = GetSessionActivityBuilder();
   // TODO add properties to the builder and call build()
 
-  group(GetSessionActivityResponse, () {
+  group(GetSessionActivity, () {
     // The list of data points.
     // BuiltList<SessionActivityDatapoint> data
     test('to test the property `data`', () async {

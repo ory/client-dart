@@ -8,39 +8,39 @@ import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'get_session_activity_response.g.dart';
+part 'get_session_activity.g.dart';
 
 /// Response of the getSessionActivity endpoint
 ///
 /// Properties:
 /// * [data] - The list of data points.
 @BuiltValue()
-abstract class GetSessionActivityResponse implements Built<GetSessionActivityResponse, GetSessionActivityResponseBuilder> {
+abstract class GetSessionActivity implements Built<GetSessionActivity, GetSessionActivityBuilder> {
   /// The list of data points.
   @BuiltValueField(wireName: r'data')
   BuiltList<SessionActivityDatapoint> get data;
 
-  GetSessionActivityResponse._();
+  GetSessionActivity._();
 
-  factory GetSessionActivityResponse([void updates(GetSessionActivityResponseBuilder b)]) = _$GetSessionActivityResponse;
+  factory GetSessionActivity([void updates(GetSessionActivityBuilder b)]) = _$GetSessionActivity;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(GetSessionActivityResponseBuilder b) => b;
+  static void _defaults(GetSessionActivityBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<GetSessionActivityResponse> get serializer => _$GetSessionActivityResponseSerializer();
+  static Serializer<GetSessionActivity> get serializer => _$GetSessionActivitySerializer();
 }
 
-class _$GetSessionActivityResponseSerializer implements PrimitiveSerializer<GetSessionActivityResponse> {
+class _$GetSessionActivitySerializer implements PrimitiveSerializer<GetSessionActivity> {
   @override
-  final Iterable<Type> types = const [GetSessionActivityResponse, _$GetSessionActivityResponse];
+  final Iterable<Type> types = const [GetSessionActivity, _$GetSessionActivity];
 
   @override
-  final String wireName = r'GetSessionActivityResponse';
+  final String wireName = r'GetSessionActivity';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    GetSessionActivityResponse object, {
+    GetSessionActivity object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
     yield r'data';
@@ -53,7 +53,7 @@ class _$GetSessionActivityResponseSerializer implements PrimitiveSerializer<GetS
   @override
   Object serialize(
     Serializers serializers,
-    GetSessionActivityResponse object, {
+    GetSessionActivity object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -64,7 +64,7 @@ class _$GetSessionActivityResponseSerializer implements PrimitiveSerializer<GetS
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required GetSessionActivityResponseBuilder result,
+    required GetSessionActivityBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
@@ -87,12 +87,12 @@ class _$GetSessionActivityResponseSerializer implements PrimitiveSerializer<GetS
   }
 
   @override
-  GetSessionActivityResponse deserialize(
+  GetSessionActivity deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = GetSessionActivityResponseBuilder();
+    final result = GetSessionActivityBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

@@ -3,56 +3,55 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'get_metrics_event_types_response.g.dart';
+part 'internal_is_owner_for_project_by_slug.g.dart';
 
-/// Response of the getMetricsEventTypes endpoint
+/// InternalIsOwnerForProjectBySlug
 ///
 /// Properties:
-/// * [events] - The list of data points.
+/// * [projectId] - ProjectID is the project's ID.
 @BuiltValue()
-abstract class GetMetricsEventTypesResponse implements Built<GetMetricsEventTypesResponse, GetMetricsEventTypesResponseBuilder> {
-  /// The list of data points.
-  @BuiltValueField(wireName: r'events')
-  BuiltList<String> get events;
+abstract class InternalIsOwnerForProjectBySlug implements Built<InternalIsOwnerForProjectBySlug, InternalIsOwnerForProjectBySlugBuilder> {
+  /// ProjectID is the project's ID.
+  @BuiltValueField(wireName: r'project_id')
+  String get projectId;
 
-  GetMetricsEventTypesResponse._();
+  InternalIsOwnerForProjectBySlug._();
 
-  factory GetMetricsEventTypesResponse([void updates(GetMetricsEventTypesResponseBuilder b)]) = _$GetMetricsEventTypesResponse;
+  factory InternalIsOwnerForProjectBySlug([void updates(InternalIsOwnerForProjectBySlugBuilder b)]) = _$InternalIsOwnerForProjectBySlug;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(GetMetricsEventTypesResponseBuilder b) => b;
+  static void _defaults(InternalIsOwnerForProjectBySlugBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<GetMetricsEventTypesResponse> get serializer => _$GetMetricsEventTypesResponseSerializer();
+  static Serializer<InternalIsOwnerForProjectBySlug> get serializer => _$InternalIsOwnerForProjectBySlugSerializer();
 }
 
-class _$GetMetricsEventTypesResponseSerializer implements PrimitiveSerializer<GetMetricsEventTypesResponse> {
+class _$InternalIsOwnerForProjectBySlugSerializer implements PrimitiveSerializer<InternalIsOwnerForProjectBySlug> {
   @override
-  final Iterable<Type> types = const [GetMetricsEventTypesResponse, _$GetMetricsEventTypesResponse];
+  final Iterable<Type> types = const [InternalIsOwnerForProjectBySlug, _$InternalIsOwnerForProjectBySlug];
 
   @override
-  final String wireName = r'GetMetricsEventTypesResponse';
+  final String wireName = r'InternalIsOwnerForProjectBySlug';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    GetMetricsEventTypesResponse object, {
+    InternalIsOwnerForProjectBySlug object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'events';
+    yield r'project_id';
     yield serializers.serialize(
-      object.events,
-      specifiedType: const FullType(BuiltList, [FullType(String)]),
+      object.projectId,
+      specifiedType: const FullType(String),
     );
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    GetMetricsEventTypesResponse object, {
+    InternalIsOwnerForProjectBySlug object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -63,19 +62,19 @@ class _$GetMetricsEventTypesResponseSerializer implements PrimitiveSerializer<Ge
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required GetMetricsEventTypesResponseBuilder result,
+    required InternalIsOwnerForProjectBySlugBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'events':
+        case r'project_id':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(String)]),
-          ) as BuiltList<String>;
-          result.events.replace(valueDes);
+            specifiedType: const FullType(String),
+          ) as String;
+          result.projectId = valueDes;
           break;
         default:
           unhandled.add(key);
@@ -86,12 +85,12 @@ class _$GetMetricsEventTypesResponseSerializer implements PrimitiveSerializer<Ge
   }
 
   @override
-  GetMetricsEventTypesResponse deserialize(
+  InternalIsOwnerForProjectBySlug deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = GetMetricsEventTypesResponseBuilder();
+    final result = InternalIsOwnerForProjectBySlugBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

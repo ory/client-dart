@@ -1,40 +1,38 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'get_project_events_response.dart';
+part of 'get_project_events.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-class _$GetProjectEventsResponse extends GetProjectEventsResponse {
+class _$GetProjectEvents extends GetProjectEvents {
   @override
   final BuiltList<ProjectEventsDatapoint> events;
   @override
   final String? pageToken;
 
-  factory _$GetProjectEventsResponse(
-          [void Function(GetProjectEventsResponseBuilder)? updates]) =>
-      (new GetProjectEventsResponseBuilder()..update(updates))._build();
+  factory _$GetProjectEvents(
+          [void Function(GetProjectEventsBuilder)? updates]) =>
+      (new GetProjectEventsBuilder()..update(updates))._build();
 
-  _$GetProjectEventsResponse._({required this.events, this.pageToken})
-      : super._() {
+  _$GetProjectEvents._({required this.events, this.pageToken}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        events, r'GetProjectEventsResponse', 'events');
+        events, r'GetProjectEvents', 'events');
   }
 
   @override
-  GetProjectEventsResponse rebuild(
-          void Function(GetProjectEventsResponseBuilder) updates) =>
+  GetProjectEvents rebuild(void Function(GetProjectEventsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GetProjectEventsResponseBuilder toBuilder() =>
-      new GetProjectEventsResponseBuilder()..replace(this);
+  GetProjectEventsBuilder toBuilder() =>
+      new GetProjectEventsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GetProjectEventsResponse &&
+    return other is GetProjectEvents &&
         events == other.events &&
         pageToken == other.pageToken;
   }
@@ -50,17 +48,16 @@ class _$GetProjectEventsResponse extends GetProjectEventsResponse {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'GetProjectEventsResponse')
+    return (newBuiltValueToStringHelper(r'GetProjectEvents')
           ..add('events', events)
           ..add('pageToken', pageToken))
         .toString();
   }
 }
 
-class GetProjectEventsResponseBuilder
-    implements
-        Builder<GetProjectEventsResponse, GetProjectEventsResponseBuilder> {
-  _$GetProjectEventsResponse? _$v;
+class GetProjectEventsBuilder
+    implements Builder<GetProjectEvents, GetProjectEventsBuilder> {
+  _$GetProjectEvents? _$v;
 
   ListBuilder<ProjectEventsDatapoint>? _events;
   ListBuilder<ProjectEventsDatapoint> get events =>
@@ -72,11 +69,11 @@ class GetProjectEventsResponseBuilder
   String? get pageToken => _$this._pageToken;
   set pageToken(String? pageToken) => _$this._pageToken = pageToken;
 
-  GetProjectEventsResponseBuilder() {
-    GetProjectEventsResponse._defaults(this);
+  GetProjectEventsBuilder() {
+    GetProjectEvents._defaults(this);
   }
 
-  GetProjectEventsResponseBuilder get _$this {
+  GetProjectEventsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _events = $v.events.toBuilder();
@@ -87,24 +84,24 @@ class GetProjectEventsResponseBuilder
   }
 
   @override
-  void replace(GetProjectEventsResponse other) {
+  void replace(GetProjectEvents other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$GetProjectEventsResponse;
+    _$v = other as _$GetProjectEvents;
   }
 
   @override
-  void update(void Function(GetProjectEventsResponseBuilder)? updates) {
+  void update(void Function(GetProjectEventsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  GetProjectEventsResponse build() => _build();
+  GetProjectEvents build() => _build();
 
-  _$GetProjectEventsResponse _build() {
-    _$GetProjectEventsResponse _$result;
+  _$GetProjectEvents _build() {
+    _$GetProjectEvents _$result;
     try {
       _$result = _$v ??
-          new _$GetProjectEventsResponse._(
+          new _$GetProjectEvents._(
               events: events.build(), pageToken: pageToken);
     } catch (_) {
       late String _$failedField;
@@ -113,7 +110,7 @@ class GetProjectEventsResponseBuilder
         events.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'GetProjectEventsResponse', _$failedField, e.toString());
+            r'GetProjectEvents', _$failedField, e.toString());
       }
       rethrow;
     }
