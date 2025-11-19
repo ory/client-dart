@@ -441,7 +441,7 @@ Name | Type | Description  | Notes
 
 Get a Project
 
-Get a projects you have access to by its ID.
+Get a project you have access to by its ID.
 
 ### Example
 ```dart
